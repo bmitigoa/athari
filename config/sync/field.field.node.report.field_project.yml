@@ -1,0 +1,25 @@
+uuid: 4b215e7d-74aa-4512-8256-52f1fec47a67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project
+    - node.type.project
+    - node.type.report
+id: node.report.field_project
+field_name: field_project
+entity_type: node
+bundle: report
+label: Project
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      project: project
+    auto_create: false
+field_type: entity_reference

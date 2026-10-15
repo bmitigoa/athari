@@ -1,0 +1,23 @@
+uuid: f17b4d99-46e5-4ad3-9dd4-f21798a87f8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.partner
+  module:
+    - node
+id: partner
+label: Partner
+type: 'canonical_entities:node'
+pattern: '/partners/[node:title]'
+selection_criteria:
+  b722446c-a298-4536-ab69-99026432fc01:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      partner: partner
+selection_logic: and
+weight: 2
+relationships: {  }

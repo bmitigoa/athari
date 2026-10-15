@@ -1,0 +1,11 @@
+uuid: 870280df-96b8-482b-bf44-b971882d6222
+langcode: en
+status: true
+dependencies: {  }
+name: Report
+type: report
+description: 'A field report on a project: beneficiaries reached, funds spent and narrative.'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

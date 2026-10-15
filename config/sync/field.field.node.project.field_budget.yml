@@ -1,0 +1,23 @@
+uuid: 6a9e5004-0787-4487-baa9-d8342c340f8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_budget
+    - node.type.project
+id: node.project.field_budget
+field_name: field_budget
+entity_type: node
+bundle: project
+label: 'Budget (USD)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: 'USD '
+  suffix: ''
+field_type: decimal

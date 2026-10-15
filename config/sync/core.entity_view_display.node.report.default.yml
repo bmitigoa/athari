@@ -1,0 +1,80 @@
+uuid: 1a9fbc5d-88f0-4626-b61c-1ee55ef3b49d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.report.field_attachments
+    - field.field.node.report.field_beneficiaries
+    - field.field.node.report.field_funds_spent
+    - field.field.node.report.field_narrative
+    - field.field.node.report.field_project
+    - field.field.node.report.field_report_date
+    - node.type.report
+  module:
+    - datetime
+    - file
+    - text
+    - user
+id: node.report.default
+targetEntityType: node
+bundle: report
+mode: default
+content:
+  field_attachments:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_beneficiaries:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ','
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_funds_spent:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_narrative:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_project:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_report_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

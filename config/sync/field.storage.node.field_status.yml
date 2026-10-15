@@ -1,0 +1,30 @@
+uuid: 18bc5f65-c63a-4237-b7dd-08c9f5d631f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_status
+field_name: field_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: planned
+      label: Planned
+    -
+      value: active
+      label: Active
+    -
+      value: completed
+      label: Completed
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

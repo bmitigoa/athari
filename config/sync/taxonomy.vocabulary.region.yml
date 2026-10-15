@@ -1,0 +1,9 @@
+uuid: 8baaf37a-8f2b-4f41-9547-df13adf52863
+langcode: en
+status: true
+dependencies: {  }
+name: Region
+vid: region
+description: 'Region classification for Athari projects.'
+weight: 0
+new_revision: false

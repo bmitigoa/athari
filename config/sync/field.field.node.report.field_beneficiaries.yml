@@ -1,0 +1,23 @@
+uuid: e024487e-477e-4d06-a108-089cb02f5432
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_beneficiaries
+    - node.type.report
+id: node.report.field_beneficiaries
+field_name: field_beneficiaries
+entity_type: node
+bundle: report
+label: 'Beneficiaries reached'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

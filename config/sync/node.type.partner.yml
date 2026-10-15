@@ -1,0 +1,11 @@
+uuid: 007e9ec3-b386-42c5-8073-ae33e06bf17a
+langcode: en
+status: true
+dependencies: {  }
+name: Partner
+type: partner
+description: 'An implementing, funding or community partner organisation.'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

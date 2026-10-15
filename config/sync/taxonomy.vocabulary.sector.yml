@@ -1,0 +1,9 @@
+uuid: cfcb997f-984f-4ad5-aaa2-10c888571849
+langcode: en
+status: true
+dependencies: {  }
+name: Sector
+vid: sector
+description: 'Sector classification for Athari projects.'
+weight: 0
+new_revision: false

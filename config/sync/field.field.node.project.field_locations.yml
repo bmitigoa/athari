@@ -1,0 +1,25 @@
+uuid: feff9aa6-c3df-44b1-bb67-f565b9ae299e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_locations
+    - node.type.location
+    - node.type.project
+id: node.project.field_locations
+field_name: field_locations
+entity_type: node
+bundle: project
+label: Locations
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      location: location
+    auto_create: false
+field_type: entity_reference

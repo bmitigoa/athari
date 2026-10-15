@@ -1,0 +1,25 @@
+uuid: c0c068ca-ca30-49bb-b548-66a7a7c86f52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_district
+    - node.type.location
+    - taxonomy.vocabulary.region
+id: node.location.field_district
+field_name: field_district
+entity_type: node
+bundle: location
+label: District
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      region: region
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: 5b240411-51c3-488a-b98e-dfd00c5266a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.region
+  module:
+    - taxonomy
+id: region
+label: Region
+type: 'canonical_entities:taxonomy_term'
+pattern: '/region/[term:name]'
+selection_criteria:
+  7fd0783c-5576-4ef2-a90f-2c18bbbbdad5:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      region: region
+selection_logic: and
+weight: 5
+relationships: {  }

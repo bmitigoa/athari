@@ -1,0 +1,27 @@
+uuid: 5856f1cd-4685-427e-9796-7a593561629a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - node.type.report
+  module:
+    - file
+id: node.report.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: report
+label: Attachments
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'reports/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx xls xlsx csv png jpg jpeg'
+  max_filesize: ''
+  description_field: true
+field_type: file

@@ -1,0 +1,11 @@
+uuid: fd23a994-a1ac-4f5c-9fd8-62bc63c8514e
+langcode: en
+status: true
+dependencies: {  }
+name: Location
+type: location
+description: 'A named project site with map coordinates.'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,23 @@
+uuid: f6a85502-6928-4f1c-a0f4-d0fada78a658
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_funds_spent
+    - node.type.report
+id: node.report.field_funds_spent
+field_name: field_funds_spent
+entity_type: node
+bundle: report
+label: 'Funds spent (USD)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: 'USD '
+  suffix: ''
+field_type: decimal

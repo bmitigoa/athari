@@ -1,0 +1,11 @@
+uuid: 32aeec61-4ca6-42ba-93e4-def2a21b9eca
+langcode: en
+status: true
+dependencies: {  }
+name: Project
+type: project
+description: 'An NGO programme or intervention with a budget, timeline, sector and region.'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

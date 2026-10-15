@@ -1,0 +1,20 @@
+uuid: 3db73123-65f7-426b-9538-65976e7e6d77
+langcode: en
+status: true
+dependencies:
+  module:
+    - geofield
+    - node
+id: node.field_coordinates
+field_name: field_coordinates
+entity_type: node
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

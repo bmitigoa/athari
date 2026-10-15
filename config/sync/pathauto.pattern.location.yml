@@ -1,0 +1,23 @@
+uuid: 144a9ea9-8f7c-4d5b-94db-03928f80467f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.location
+  module:
+    - node
+id: location
+label: Location
+type: 'canonical_entities:node'
+pattern: '/locations/[node:title]'
+selection_criteria:
+  638779ac-61a5-4178-beaa-586a3a358559:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      location: location
+selection_logic: and
+weight: 1
+relationships: {  }

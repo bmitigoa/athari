@@ -1,0 +1,39 @@
+uuid: 861092c6-a685-4bed-9cff-ded9809e29e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.location.field_coordinates
+    - field.field.node.location.field_district
+    - node.type.location
+  module:
+    - geofield
+    - user
+id: node.location.default
+targetEntityType: node
+bundle: location
+mode: default
+content:
+  field_coordinates:
+    type: geofield_default
+    label: above
+    settings:
+      output_format: string
+      output_escape: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_district:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
