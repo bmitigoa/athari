@@ -1,0 +1,55 @@
+# Composer dependencies (restored with `composer install`)
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/recipes/*/
+!/recipes/README.txt
+/drush/contrib/
+
+# Drupal runtime files and local settings (secrets live here)
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/settings.local.php
+/web/sites/*/services.local.yml
+/web/sites/simpletest/
+/private/
+
+# Scaffold files managed by drupal/core-composer-scaffold
+/web/.csslintrc
+/web/.eslintrc.json
+/web/.ht.router.php
+/web/.htaccess
+/web/INSTALL.txt
+/web/autoload.php
+/web/index.php
+/web/robots.txt
+/web/update.php
+/web/web.config
+/web/sites/default/default.services.yml
+/web/sites/default/default.settings.php
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+/web/sites/development.services.yml
+/web/sites/README.txt
+/web/modules/README.txt
+/web/profiles/README.txt
+/web/themes/README.txt
+
+# Secrets and environment
+.env
+.env.*
+*.pem
+*.key
+
+# Tooling and OS
+/.claude/
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+node_modules/
