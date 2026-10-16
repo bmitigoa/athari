@@ -1,0 +1,84 @@
+﻿CHECK|anonymous|View published report|yes|yes|PASS
+CHECK|fieldofficer|View published report|yes|yes|PASS
+CHECK|reviewer|View published report|yes|yes|PASS
+CHECK|ngoadmin|View published report|yes|yes|PASS
+CHECK|anonymous|View own draft report|no|no|PASS
+CHECK|fieldofficer|View own draft report|yes|yes|PASS
+CHECK|reviewer|View own draft report|yes|yes|PASS
+CHECK|ngoadmin|View own draft report|yes|yes|PASS
+CHECK|anonymous|View someone else's archived report|no|no|PASS
+CHECK|fieldofficer|View someone else's archived report|no|no|PASS
+CHECK|reviewer|View someone else's archived report|yes|yes|PASS
+CHECK|ngoadmin|View someone else's archived report|yes|yes|PASS
+CHECK|anonymous|Create report|no|no|PASS
+CHECK|fieldofficer|Create report|yes|yes|PASS
+CHECK|reviewer|Create report|no|no|PASS
+CHECK|ngoadmin|Create report|yes|yes|PASS
+CHECK|anonymous|Create project|no|no|PASS
+CHECK|fieldofficer|Create project|no|no|PASS
+CHECK|reviewer|Create project|no|no|PASS
+CHECK|ngoadmin|Create project|yes|yes|PASS
+CHECK|anonymous|Create location|no|no|PASS
+CHECK|fieldofficer|Create location|no|no|PASS
+CHECK|reviewer|Create location|no|no|PASS
+CHECK|ngoadmin|Create location|yes|yes|PASS
+CHECK|anonymous|Create partner|no|no|PASS
+CHECK|fieldofficer|Create partner|no|no|PASS
+CHECK|reviewer|Create partner|no|no|PASS
+CHECK|ngoadmin|Create partner|yes|yes|PASS
+CHECK|anonymous|Edit a field officer draft report|no|no|PASS
+CHECK|fieldofficer|Edit a field officer draft report|yes|yes|PASS
+CHECK|reviewer|Edit a field officer draft report|no|no|PASS
+CHECK|ngoadmin|Edit a field officer draft report|yes|yes|PASS
+CHECK|anonymous|Edit someone else's published report|no|no|PASS
+CHECK|fieldofficer|Edit someone else's published report|no|no|PASS
+CHECK|reviewer|Edit someone else's published report|yes|yes|PASS
+CHECK|ngoadmin|Edit someone else's published report|yes|yes|PASS
+CHECK|anonymous|Edit project|no|no|PASS
+CHECK|fieldofficer|Edit project|no|no|PASS
+CHECK|reviewer|Edit project|no|no|PASS
+CHECK|ngoadmin|Edit project|yes|yes|PASS
+CHECK|anonymous|Delete a draft report|no|no|PASS
+CHECK|fieldofficer|Delete a draft report|no|no|PASS
+CHECK|reviewer|Delete a draft report|no|no|PASS
+CHECK|ngoadmin|Delete a draft report|yes|yes|PASS
+CHECK|anonymous|Delete project|no|no|PASS
+CHECK|fieldofficer|Delete project|no|no|PASS
+CHECK|reviewer|Delete project|no|no|PASS
+CHECK|ngoadmin|Delete project|yes|yes|PASS
+CHECK|anonymous|Create Sector term|no|no|PASS
+CHECK|fieldofficer|Create Sector term|no|no|PASS
+CHECK|reviewer|Create Sector term|no|no|PASS
+CHECK|ngoadmin|Create Sector term|yes|yes|PASS
+CHECK|anonymous|See content overview (/admin/content)|no|no|PASS
+CHECK|fieldofficer|See content overview (/admin/content)|yes|yes|PASS
+CHECK|reviewer|See content overview (/admin/content)|yes|yes|PASS
+CHECK|ngoadmin|See content overview (/admin/content)|yes|yes|PASS
+CHECK|anonymous|Administer users|no|no|PASS
+CHECK|fieldofficer|Administer users|no|no|PASS
+CHECK|reviewer|Administer users|no|no|PASS
+CHECK|ngoadmin|Administer users|yes|yes|PASS
+CHECK|fieldofficer|Transitions from Draft|create_draft,submit_for_review|create_draft,submit_for_review|PASS
+CHECK|reviewer|Transitions from Draft|||PASS
+CHECK|ngoadmin|Transitions from Draft|create_draft,submit_for_review|create_draft,submit_for_review|PASS
+CHECK|fieldofficer|Transitions from In Review|||PASS
+CHECK|reviewer|Transitions from In Review|publish,return_to_draft|publish,return_to_draft|PASS
+CHECK|ngoadmin|Transitions from In Review|publish,return_to_draft|publish,return_to_draft|PASS
+CHECK|fieldofficer|Transitions from Published|||PASS
+CHECK|reviewer|Transitions from Published|archive,republish|archive,republish|PASS
+CHECK|ngoadmin|Transitions from Published|archive,republish|archive,republish|PASS
+CHECK|fieldofficer|Transitions from Archived|||PASS
+CHECK|reviewer|Transitions from Archived|||PASS
+CHECK|ngoadmin|Transitions from Archived|restore|restore|PASS
+CHECK|fieldofficer|Field officer submits own draft for review|yes|yes|PASS
+CHECK|fieldofficer|Field officer tries to publish a draft directly|no|no|PASS
+CHECK|fieldofficer|Field officer tries to publish a report in review|no|no|PASS
+CHECK|fieldofficer|Field officer tries to pull a report back from review|no|no|PASS
+CHECK|reviewer|Reviewer approves a report in review|yes|yes|PASS
+CHECK|reviewer|Reviewer rejects a report in review|yes|yes|PASS
+CHECK|reviewer|Reviewer tries to publish a draft that was never submitted|no|no|PASS
+CHECK|reviewer|Reviewer archives a published report|yes|yes|PASS
+CHECK|reviewer|Reviewer tries to restore an archived report|no|no|PASS
+CHECK|ngoadmin|Admin restores an archived report|yes|yes|PASS
+CHECK|ngoadmin|Admin tries to skip review (draft straight to published)|no|no|PASS
+SUMMARY|ALL CHECKS PASSED
