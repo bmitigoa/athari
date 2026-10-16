@@ -1,4 +1,4 @@
-uuid: c6bb820e-d8d0-4cf4-8ad6-1df9c1f930e8
+uuid: e7438451-1fa3-4e49-8fd9-22bf44cd5eec
 langcode: en
 status: true
 dependencies:
@@ -253,6 +253,7 @@ display:
           height: '560'
           height_unit: px
           hide_empty_map: true
+          fitbounds_options: '{"padding":[40,40]}'
           map_position:
             force: true
             center:
@@ -324,6 +325,7 @@ display:
           height: '420'
           height_unit: px
           hide_empty_map: true
+          fitbounds_options: '{"padding":[40,40]}'
           map_position:
             force: true
             center:

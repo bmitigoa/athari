@@ -113,7 +113,7 @@ $report_fields = [
   'field_report_date' => athari_vf('field_report_date', 'node__field_report_date', 'field_report_date', ['label' => 'Date', 'type' => 'datetime_custom', 'settings' => ['timezone_override' => '', 'date_format' => 'j M Y']]),
   'title' => athari_vf_base('title', 'node_field_data', 'title', 'node', ['label' => 'Report', 'settings' => ['link_to_entity' => TRUE]]),
   'field_beneficiaries' => athari_vf('field_beneficiaries', 'node__field_beneficiaries', 'field_beneficiaries', ['label' => 'Beneficiaries', 'type' => 'number_integer', 'settings' => ['thousand_separator' => ',', 'prefix_suffix' => FALSE]]),
-  'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', ['label' => 'Funds spent', 'type' => 'number_integer', 'settings' => ['thousand_separator' => ',', 'prefix_suffix' => TRUE]]),
+  'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', ['label' => 'Funds spent', 'type' => 'number_decimal', 'settings' => ['thousand_separator' => ',', 'decimal_separator' => '.', 'scale' => 0, 'prefix_suffix' => TRUE]]),
 ];
 View::create([
   'id' => 'project_reports',

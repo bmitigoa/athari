@@ -189,6 +189,7 @@ a:focus {
 .athari-stats .view-header,
 .athari-stats .view-header .view,
 .athari-stats .view-content,
+.athari-stats .view-content > div,
 .athari-stats .views-row {
   display: contents;
 }
@@ -384,13 +385,13 @@ table.views-table {
   box-shadow: var(--athari-shadow);
 }
 
-.views-table th {
+table.views-table thead th {
   background: var(--athari-green);
   color: #fff;
   text-align: left;
 }
 
-.views-table th a {
+table.views-table thead th a {
   color: #fff;
 }
 

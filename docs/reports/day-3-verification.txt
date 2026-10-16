@@ -1,0 +1,59 @@
+PAGE|anonymous|/|200|200|PASS
+PAGE|anonymous|menu shows Review queue link|no|no|PASS
+PAGE|fieldofficer|/|200|200|PASS
+PAGE|fieldofficer|menu shows Review queue link|no|no|PASS
+PAGE|reviewer|/|200|200|PASS
+PAGE|reviewer|menu shows Review queue link|yes|yes|PASS
+PAGE|ngoadmin|/|200|200|PASS
+PAGE|ngoadmin|menu shows Review queue link|yes|yes|PASS
+PAGE|anonymous|/home|200|200|PASS
+PAGE|fieldofficer|/home|200|200|PASS
+PAGE|reviewer|/home|200|200|PASS
+PAGE|ngoadmin|/home|200|200|PASS
+PAGE|anonymous|/projects|200|200|PASS
+PAGE|fieldofficer|/projects|200|200|PASS
+PAGE|reviewer|/projects|200|200|PASS
+PAGE|ngoadmin|/projects|200|200|PASS
+PAGE|anonymous|/projects/table|200|200|PASS
+PAGE|fieldofficer|/projects/table|200|200|PASS
+PAGE|reviewer|/projects/table|200|200|PASS
+PAGE|ngoadmin|/projects/table|200|200|PASS
+PAGE|anonymous|/projects?sector=1|200|200|PASS
+PAGE|fieldofficer|/projects?sector=1|200|200|PASS
+PAGE|reviewer|/projects?sector=1|200|200|PASS
+PAGE|ngoadmin|/projects?sector=1|200|200|PASS
+PAGE|anonymous|/impact|200|200|PASS
+PAGE|fieldofficer|/impact|200|200|PASS
+PAGE|reviewer|/impact|200|200|PASS
+PAGE|ngoadmin|/impact|200|200|PASS
+PAGE|anonymous|/map|200|200|PASS
+PAGE|fieldofficer|/map|200|200|PASS
+PAGE|reviewer|/map|200|200|PASS
+PAGE|ngoadmin|/map|200|200|PASS
+PAGE|anonymous|/about|200|200|PASS
+PAGE|fieldofficer|/about|200|200|PASS
+PAGE|reviewer|/about|200|200|PASS
+PAGE|ngoadmin|/about|200|200|PASS
+PAGE|anonymous|/projects/kawempe-maternal-child-health-outreach|200|200|PASS
+PAGE|fieldofficer|/projects/kawempe-maternal-child-health-outreach|200|200|PASS
+PAGE|reviewer|/projects/kawempe-maternal-child-health-outreach|200|200|PASS
+PAGE|ngoadmin|/projects/kawempe-maternal-child-health-outreach|200|200|PASS
+PAGE|anonymous|/review-queue|403|403|PASS
+PAGE|fieldofficer|/review-queue|403|403|PASS
+PAGE|reviewer|/review-queue|200|200|PASS
+PAGE|ngoadmin|/review-queue|200|200|PASS
+PAGE|anonymous|/node/add/report|403|403|PASS
+PAGE|fieldofficer|/node/add/report|200|200|PASS
+PAGE|reviewer|/node/add/report|403|403|PASS
+PAGE|ngoadmin|/node/add/report|200|200|PASS
+PAGE|anonymous|/node/add/project|403|403|PASS
+PAGE|fieldofficer|/node/add/project|403|403|PASS
+PAGE|reviewer|/node/add/project|403|403|PASS
+PAGE|ngoadmin|/node/add/project|200|200|PASS
+PAGE|anonymous|/admin/content|403|403|PASS
+PAGE|fieldofficer|/admin/content|200|200|PASS
+PAGE|reviewer|/admin/content|200|200|PASS
+PAGE|ngoadmin|/admin/content|200|200|PASS
+NOTE|reviewer|/review-queue shows 5 report row(s)
+NOTE|ngoadmin|/review-queue shows 5 report row(s)
+SUMMARY|ALL PAGE CHECKS PASSED

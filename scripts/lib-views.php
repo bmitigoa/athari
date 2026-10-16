@@ -195,6 +195,7 @@ function athari_vleaflet(int $height, bool $fixed_uganda): array {
       'data_source' => 'field_coordinates',
       'entity_source' => 'locations_rel',
       'name_field' => '',
+      'fitbounds_options' => '{"padding":[40,40]}',
       'description_field' => '',
       'leaflet_popup' => ['value' => 'popup', 'options' => '{"maxWidth":"300","minWidth":"50", "autoPan": true}', 'view_mode' => 'full', 'control' => FALSE, 'content' => ''],
       'height' => $height,

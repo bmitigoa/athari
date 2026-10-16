@@ -1,4 +1,4 @@
-uuid: f8028eff-e18e-49ac-961e-57c6d37ec2c4
+uuid: 71d029c0-ee51-4427-af0c-8e46ed0ff7fe
 langcode: en
 status: true
 dependencies:
@@ -198,9 +198,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
+          type: number_decimal
           settings:
             thousand_separator: ','
+            decimal_separator: .
+            scale: 0
             prefix_suffix: true
           group_column: value
           group_columns: {  }

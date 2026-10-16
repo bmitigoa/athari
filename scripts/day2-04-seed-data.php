@@ -284,6 +284,9 @@ foreach ($reports as $project_title => $rows) {
     foreach ($state_path[$state] as $step) {
       $node->set('moderation_state', $step);
       $node->setNewRevision(TRUE);
+      // A state-only change does not touch any field, so mark the revision as
+      // translation-affected explicitly. The review queue relies on this flag.
+      $node->setRevisionTranslationAffected(TRUE);
       $node->setRevisionLogMessage("Seeded sample report ($step).");
       $node->save();
     }
