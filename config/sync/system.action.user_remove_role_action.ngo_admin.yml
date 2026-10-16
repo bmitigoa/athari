@@ -1,0 +1,14 @@
+uuid: 7376920c-f86d-497f-884a-b65f74381ae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ngo_admin
+  module:
+    - user
+id: user_remove_role_action.ngo_admin
+label: 'Remove the Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: ngo_admin

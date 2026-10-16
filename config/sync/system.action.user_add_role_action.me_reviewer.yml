@@ -1,0 +1,14 @@
+uuid: cc6d0ccc-3cbc-46ed-8843-fdc4c4b65da1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.me_reviewer
+  module:
+    - user
+id: user_add_role_action.me_reviewer
+label: 'Add the M&amp;E Reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: me_reviewer

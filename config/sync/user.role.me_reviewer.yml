@@ -1,0 +1,29 @@
+uuid: 5abd212d-3d57-4b84-85f0-bba550d10848
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.report
+    - workflows.workflow.report_review
+  module:
+    - content_moderation
+    - node
+    - system
+    - toolbar
+id: me_reviewer
+label: 'M&E Reviewer'
+weight: 6
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'edit any report content'
+  - 'use report_review transition archive'
+  - 'use report_review transition publish'
+  - 'use report_review transition republish'
+  - 'use report_review transition return_to_draft'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view the administration theme'

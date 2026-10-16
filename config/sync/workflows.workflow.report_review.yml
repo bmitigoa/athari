@@ -1,0 +1,79 @@
+uuid: 192342d5-f7e2-495a-b790-33ca6ae4c4c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.report
+  module:
+    - content_moderation
+id: report_review
+label: 'Report review'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 3
+      published: false
+      default_revision: true
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    in_review:
+      label: 'In Review'
+      weight: 1
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 2
+      published: true
+      default_revision: true
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - published
+      to: archived
+      weight: 5
+    create_draft:
+      label: 'Save as draft'
+      from:
+        - draft
+      to: draft
+      weight: 0
+    publish:
+      label: 'Approve and publish'
+      from:
+        - in_review
+      to: published
+      weight: 3
+    republish:
+      label: 'Save published report'
+      from:
+        - published
+      to: published
+      weight: 4
+    restore:
+      label: 'Restore archived report to draft'
+      from:
+        - archived
+      to: draft
+      weight: 6
+    return_to_draft:
+      label: 'Reject (return to draft)'
+      from:
+        - in_review
+      to: draft
+      weight: 2
+    submit_for_review:
+      label: 'Submit for review'
+      from:
+        - draft
+      to: in_review
+      weight: 1
+  entity_types:
+    node:
+      - report

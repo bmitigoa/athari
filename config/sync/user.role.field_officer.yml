@@ -1,0 +1,27 @@
+uuid: 60d93378-44e1-478d-8139-6335b5bdd4cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.report
+    - workflows.workflow.report_review
+  module:
+    - content_moderation
+    - node
+    - system
+    - toolbar
+id: field_officer
+label: 'Field Officer'
+weight: 5
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create report content'
+  - 'edit own report content'
+  - 'use report_review transition create_draft'
+  - 'use report_review transition submit_for_review'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view the administration theme'

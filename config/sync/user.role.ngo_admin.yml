@@ -1,0 +1,84 @@
+uuid: 119347ca-3da6-4668-bcf0-764dd35d1122
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.location
+    - node.type.partner
+    - node.type.project
+    - node.type.report
+    - taxonomy.vocabulary.region
+    - taxonomy.vocabulary.sector
+    - workflows.workflow.report_review
+  module:
+    - content_moderation
+    - field_ui
+    - node
+    - path
+    - pathauto
+    - system
+    - taxonomy
+    - toolbar
+    - workflows
+id: ngo_admin
+label: Admin
+weight: 7
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer content types'
+  - 'administer node display'
+  - 'administer node fields'
+  - 'administer node form display'
+  - 'administer nodes'
+  - 'administer pathauto'
+  - 'administer permissions'
+  - 'administer taxonomy'
+  - 'administer url aliases'
+  - 'administer users'
+  - 'administer workflows'
+  - 'create location content'
+  - 'create partner content'
+  - 'create project content'
+  - 'create report content'
+  - 'create terms in region'
+  - 'create terms in sector'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any location content'
+  - 'delete any partner content'
+  - 'delete any project content'
+  - 'delete any report content'
+  - 'delete own location content'
+  - 'delete own partner content'
+  - 'delete own project content'
+  - 'delete own report content'
+  - 'delete terms in region'
+  - 'delete terms in sector'
+  - 'edit any location content'
+  - 'edit any partner content'
+  - 'edit any project content'
+  - 'edit any report content'
+  - 'edit own location content'
+  - 'edit own partner content'
+  - 'edit own project content'
+  - 'edit own report content'
+  - 'edit terms in region'
+  - 'edit terms in sector'
+  - 'revert all revisions'
+  - 'use report_review transition archive'
+  - 'use report_review transition create_draft'
+  - 'use report_review transition publish'
+  - 'use report_review transition republish'
+  - 'use report_review transition restore'
+  - 'use report_review transition return_to_draft'
+  - 'use report_review transition submit_for_review'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view the administration theme'

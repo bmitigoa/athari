@@ -1,0 +1,14 @@
+uuid: cced1453-cb53-4b48-9d72-69ac508209cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.me_reviewer
+  module:
+    - user
+id: user_remove_role_action.me_reviewer
+label: 'Remove the M&amp;E Reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: me_reviewer
