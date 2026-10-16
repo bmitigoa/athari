@@ -168,15 +168,26 @@ a:focus {
   gap: 0.9rem;
 }
 
-/* 6. Impact stat cards */
-.athari-stats .view-content,
-.athari-stats .views-row {
+/* 6. Impact stat cards. The wrapper views are flattened with display: contents
+   so the cards from the header view and the main view share one grid. */
+.athari-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.athari-stats .view-header,
+.athari-stats .view-header .view,
+.athari-stats .view-content,
+.athari-stats .views-row {
+  display: contents;
 }
 
 .athari-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
   padding: 1.4rem 1.2rem;
   border: 1px solid var(--athari-line);
   border-top: 5px solid var(--athari-green);
@@ -186,11 +197,11 @@ a:focus {
   text-align: center;
 }
 
-.athari-stat:nth-child(2) {
+.athari-stat--beneficiaries {
   border-top-color: var(--athari-earth);
 }
 
-.athari-stat:nth-child(3) {
+.athari-stat--funds {
   border-top-color: #d9a441;
 }
 
@@ -211,7 +222,6 @@ a:focus {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-
 /* 7. Cards (projects, featured projects) */
 .athari-cards > .view-content {
   display: grid;

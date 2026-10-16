@@ -2,7 +2,7 @@ _core:
   default_config_hash: X1IunfrkuymC9ew0lalN05lrNWlRP63vAalni3ZcMkE
 langcode: en
 charts_default_settings:
-  library: ''
+  library: chartjs
   type: line
   display:
     title: ''
@@ -16,31 +16,13 @@ charts_default_settings:
     background: ''
     three_dimensional: 0
     colors:
-      - '#006fb0'
-      - '#f07c33'
-      - '#342e9c'
-      - '#579b17'
-      - '#3f067a'
-      - '#cbde67'
-      - '#7643b6'
-      - '#738d00'
-      - '#c157c7'
-      - '#02dab1'
-      - '#ed56b4'
-      - '#d8d981'
-      - '#004695'
-      - '#736000'
-      - '#a5a5ff'
-      - '#833a00'
-      - '#ff9ee9'
-      - '#684507'
-      - '#fe4f85'
-      - '#5d0011'
-      - '#ffa67b'
-      - '#88005c'
-      - '#ff9b8f'
-      - '#85000f'
-      - '#ff7581'
+      - '#2f6b4f'
+      - '#c0682f'
+      - '#d9a441'
+      - '#4f8a67'
+      - '#8a5a3c'
+      - '#7a9e7e'
+      - '#e2a15e'
     polar: 0
     tooltips: true
     tooltips_use_html: false
