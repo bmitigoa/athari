@@ -1,0 +1,22 @@
+uuid: b0034e24-744b-458f-8663-e8070da7f91b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - athari_theme
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: athari_theme_powered
+theme: athari_theme
+region: footer_bottom
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

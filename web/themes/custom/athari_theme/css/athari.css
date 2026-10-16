@@ -1,0 +1,443 @@
+/**
+ * Athari theme. Loaded after Olivero's global styling.
+ *
+ * Sections: 1 Palette  2 Base  3 Header and menu  4 Buttons  5 Hero
+ *           6 Impact stat cards  7 Cards  8 Filters and tables  9 Maps
+ *           10 Project page  11 Charts  12 Footer  13 Small screens
+ */
+
+/* 1. Palette: Olivero derives all its colours from these custom properties. */
+:root {
+  --color--primary-hue: 152;
+  --color--primary-saturation: 41%;
+  --color--primary-lightness: 31;
+  --color--gray-hue: 40;
+  --color--gray-saturation: 9%;
+  --athari-green: #2f6b4f;
+  --athari-green-dark: #1f4a36;
+  --athari-green-soft: #e4efe8;
+  --athari-earth: #c0682f;
+  --athari-earth-soft: #f4e3d3;
+  --athari-sand: #f6f1e7;
+  --athari-ink: #25302a;
+  --athari-muted: #5d6a62;
+  --athari-line: #dcd5c6;
+  --athari-radius: 14px;
+  --athari-shadow: 0 2px 10px rgba(37, 48, 42, 0.08);
+}
+
+/* 2. Base */
+body {
+  background: var(--athari-sand);
+  color: var(--athari-ink);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: var(--athari-green-dark);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--athari-green);
+}
+
+a:hover,
+a:focus {
+  color: var(--athari-earth);
+}
+
+.main-content__container {
+  padding-block: 2rem;
+}
+
+/* 3. Header and menu */
+.site-header__inner {
+  background: #fff;
+  border-bottom: 1px solid var(--athari-line);
+}
+
+.site-branding__logo img {
+  max-height: 48px;
+  width: auto;
+}
+
+.site-branding__name {
+  display: none;
+}
+
+.primary-nav__menu-link {
+  font-weight: 600;
+}
+
+.primary-nav__menu-link:hover,
+.primary-nav__menu-link:focus,
+.primary-nav__menu-link.is-active {
+  color: var(--athari-earth);
+}
+
+/* 4. Buttons */
+.athari-btn,
+.views-exposed-form .form-submit {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid var(--athari-green);
+  border-radius: 999px;
+  background: var(--athari-green);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.athari-btn:hover,
+.athari-btn:focus,
+.views-exposed-form .form-submit:hover {
+  background: var(--athari-green-dark);
+  border-color: var(--athari-green-dark);
+  color: #fff;
+}
+
+.athari-btn--earth {
+  background: var(--athari-earth);
+  border-color: var(--athari-earth);
+}
+
+.athari-btn--earth:hover,
+.athari-btn--earth:focus {
+  background: #9c4f1e;
+  border-color: #9c4f1e;
+}
+
+.athari-btn--ghost {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.athari-btn--ghost:hover,
+.athari-btn--ghost:focus {
+  background: #fff;
+  border-color: #fff;
+  color: var(--athari-green-dark);
+}
+
+/* 5. Hero (full-width region on the front page) */
+.region--hero {
+  padding: 0;
+}
+
+.athari-hero {
+  background: linear-gradient(135deg, var(--athari-green-dark), var(--athari-green) 60%, #4f8a67);
+  color: #fff;
+  padding: 4.5rem 1.25rem;
+}
+
+.athari-hero__inner {
+  max-width: 62rem;
+  margin: 0 auto;
+}
+
+.athari-hero__eyebrow {
+  margin: 0 0 0.75rem;
+  color: #f1c9a4;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.athari-hero__title {
+  margin: 0 0 1rem;
+  max-width: 20ch;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.athari-hero__lead {
+  max-width: 44rem;
+  margin: 0 0 2rem;
+  font-size: 1.2rem;
+  color: #e4efe8;
+}
+
+.athari-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+/* 6. Impact stat cards */
+.athari-stats .view-content,
+.athari-stats .views-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.athari-stat {
+  padding: 1.4rem 1.2rem;
+  border: 1px solid var(--athari-line);
+  border-top: 5px solid var(--athari-green);
+  border-radius: var(--athari-radius);
+  background: #fff;
+  box-shadow: var(--athari-shadow);
+  text-align: center;
+}
+
+.athari-stat:nth-child(2) {
+  border-top-color: var(--athari-earth);
+}
+
+.athari-stat:nth-child(3) {
+  border-top-color: #d9a441;
+}
+
+.athari-stat__value {
+  display: block;
+  color: var(--athari-green-dark);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.athari-stat__label {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--athari-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* 7. Cards (projects, featured projects) */
+.athari-cards > .view-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.25rem;
+}
+
+.athari-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  border: 1px solid var(--athari-line);
+  border-radius: var(--athari-radius);
+  background: #fff;
+  box-shadow: var(--athari-shadow);
+}
+
+.athari-card__title {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.athari-card__title a {
+  color: var(--athari-green-dark);
+  text-decoration: none;
+}
+
+.athari-card__title a:hover {
+  color: var(--athari-earth);
+}
+
+.athari-card__meta {
+  color: var(--athari-muted);
+  font-size: 0.9rem;
+}
+
+.athari-pill {
+  display: inline-block;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  background: var(--athari-green-soft);
+  color: var(--athari-green-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.athari-pill--active {
+  background: var(--athari-green-soft);
+}
+
+.athari-pill--planned {
+  background: #fbefcf;
+  color: #7a5a0a;
+}
+
+.athari-pill--completed {
+  background: #e3e8ee;
+  color: #3b4a5a;
+}
+
+.athari-section-title {
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--athari-green-soft);
+}
+
+.athari-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.athari-toggle a {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--athari-green);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.athari-toggle a.is-current {
+  background: var(--athari-green);
+  color: #fff;
+}
+
+/* 8. Exposed filters and tables */
+.views-exposed-form {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--athari-line);
+  border-radius: var(--athari-radius);
+  background: #fff;
+}
+
+.views-exposed-form .form--inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.views-exposed-form .form-item {
+  margin: 0;
+}
+
+.views-exposed-form select {
+  min-width: 11rem;
+}
+
+.views-table,
+table.views-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: var(--athari-shadow);
+}
+
+.views-table th {
+  background: var(--athari-green);
+  color: #fff;
+  text-align: left;
+}
+
+.views-table th a {
+  color: #fff;
+}
+
+.views-table th,
+.views-table td {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--athari-line);
+}
+
+.views-table tr:nth-child(even) td {
+  background: #faf7f0;
+}
+
+/* 9. Maps */
+.leaflet-container {
+  border: 1px solid var(--athari-line);
+  border-radius: var(--athari-radius);
+  box-shadow: var(--athari-shadow);
+  z-index: 1;
+}
+
+.leaflet-popup-content a {
+  font-weight: 700;
+}
+
+/* 10. Project page */
+.athari-project-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.node--type-project .field--label-above,
+.node--type-project .field--label-inline {
+  margin-bottom: 0.5rem;
+}
+
+.node--type-project .field__label {
+  color: var(--athari-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.athari-block-box {
+  margin: 1.5rem 0;
+}
+
+/* 11. Charts */
+.athari-charts > .attachment,
+.athari-charts .charts-chartjs,
+.athari-chart {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--athari-line);
+  border-radius: var(--athari-radius);
+  background: #fff;
+  box-shadow: var(--athari-shadow);
+}
+
+/* 12. Footer and call to action */
+.athari-cta {
+  margin: 3rem 0 0;
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--athari-radius);
+  background: var(--athari-earth-soft);
+  text-align: center;
+}
+
+.athari-cta h2 {
+  margin-top: 0;
+}
+
+.site-footer {
+  background: var(--athari-green-dark);
+  color: #e4efe8;
+}
+
+.site-footer a {
+  color: #f1c9a4;
+}
+
+/* 13. Small screens */
+@media (max-width: 600px) {
+  .athari-hero {
+    padding: 3rem 1rem;
+  }
+
+  .athari-stat__value {
+    font-size: 2rem;
+  }
+
+  .views-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .athari-cta {
+    padding: 2rem 1rem;
+  }
+}

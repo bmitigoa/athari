@@ -1,0 +1,8 @@
+logo:
+  use_default: false
+  path: themes/custom/athari_theme/logo.svg
+favicon:
+  use_default: false
+  path: themes/custom/athari_theme/favicon.svg
+base_primary_color: '#2f6b4f'
+site_branding_bg_color: white

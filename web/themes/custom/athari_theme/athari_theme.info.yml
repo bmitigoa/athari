@@ -1,0 +1,22 @@
+name: Athari
+type: theme
+description: 'Calm green and earth-tone theme for the Athari NGO Project & Impact Portal. A sub-theme of Olivero.'
+package: Athari
+core_version_requirement: ^11
+base theme: olivero
+libraries:
+  - athari_theme/global-styling
+regions:
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  hero: Hero (full width)
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  social: Social Bar
+  content_above: Content Above
+  content: Content
+  sidebar: Sidebar
+  content_below: Content Below
+  footer_top: Footer Top
+  footer_bottom: Footer Bottom

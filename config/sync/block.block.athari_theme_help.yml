@@ -1,0 +1,22 @@
+uuid: 9c2d7676-9001-4280-94ba-aba988381be5
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - athari_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: athari_theme_help
+theme: athari_theme
+region: content_above
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

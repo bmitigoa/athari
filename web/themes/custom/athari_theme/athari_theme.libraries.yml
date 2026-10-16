@@ -1,0 +1,7 @@
+global-styling:
+  version: 1.0.0
+  css:
+    theme:
+      css/athari.css: {}
+  dependencies:
+    - olivero/global-styling

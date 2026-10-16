@@ -1,0 +1,22 @@
+uuid: 39a92ecb-027e-4c00-81f5-f9bccbb39dee
+langcode: en
+status: true
+dependencies:
+  theme:
+    - athari_theme
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: athari_theme_secondary_local_tasks
+theme: athari_theme
+region: highlighted
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

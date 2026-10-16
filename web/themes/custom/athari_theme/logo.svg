@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64" role="img" aria-label="Athari">
+  <title>Athari</title>
+  <g transform="translate(32 32)" fill="none" stroke-linecap="round">
+    <circle r="27" stroke="#2f6b4f" stroke-width="3" opacity="0.25"/>
+    <circle r="19" stroke="#2f6b4f" stroke-width="3.5" opacity="0.55"/>
+    <circle r="11" stroke="#2f6b4f" stroke-width="4"/>
+    <circle r="4.5" fill="#c0682f" stroke="none"/>
+  </g>
+  <text x="72" y="43" font-family="Metropolis, 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="0.5" fill="#25302a">athari</text>
+</svg>
