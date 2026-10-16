@@ -1,4 +1,4 @@
-uuid: 69851245-daa5-46e0-bd46-1430512fdf21
+uuid: 1857a2ba-85f5-4552-92e6-6c300e3cb3cf
 langcode: en
 status: true
 dependencies:
@@ -144,13 +144,13 @@ display:
             strip_tags: false
             trim: false
             html: false
-          element_type: div
-          element_class: athari-card__meta
+          element_type: span
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: div
+          element_wrapper_class: athari-card__meta
           element_default_classes: true
           empty: ''
           hide_empty: false
@@ -189,13 +189,13 @@ display:
             strip_tags: false
             trim: false
             html: false
-          element_type: div
-          element_class: athari-card__meta
+          element_type: span
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: div
+          element_wrapper_class: athari-card__meta
           element_default_classes: true
           empty: ''
           hide_empty: false
@@ -234,13 +234,13 @@ display:
             strip_tags: false
             trim: false
             html: false
-          element_type: div
-          element_class: athari-card__meta
+          element_type: span
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: div
+          element_wrapper_class: athari-card__meta
           element_default_classes: true
           empty: ''
           hide_empty: false

@@ -1,0 +1,29 @@
+uuid: b30142e9-b45e-466e-a094-48a66a495e8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.home_hero
+  module:
+    - system
+    - views
+  theme:
+    - athari_theme
+id: athari_theme_home_hero
+theme: athari_theme
+region: hero
+weight: 0
+provider: null
+plugin: 'views_block:home_hero-block_1'
+settings:
+  id: 'views_block:home_hero-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

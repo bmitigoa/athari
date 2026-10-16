@@ -102,12 +102,12 @@ $label_formatter = ['type' => 'entity_reference_label', 'settings' => ['link' =>
 $card_fields = [
   'title' => $title_field,
   'field_status' => athari_pf('field_status', ['type' => 'list_default', 'element_type' => 'div', 'element_class' => 'athari-pill', 'element_default_classes' => FALSE]),
-  'field_sector' => athari_pf('field_sector', $label_formatter + ['element_type' => 'div', 'element_class' => 'athari-card__meta', 'label' => 'Sector', 'element_label_colon' => TRUE, 'click_sort_column' => 'target_id']),
-  'field_region' => athari_pf('field_region', $label_formatter + ['element_type' => 'div', 'element_class' => 'athari-card__meta', 'label' => 'Region', 'element_label_colon' => TRUE, 'click_sort_column' => 'target_id']),
+  'field_sector' => athari_pf('field_sector', $label_formatter + ['element_type' => 'span', 'element_wrapper_type' => 'div', 'element_wrapper_class' => 'athari-card__meta', 'label' => 'Sector', 'element_label_colon' => TRUE, 'click_sort_column' => 'target_id']),
+  'field_region' => athari_pf('field_region', $label_formatter + ['element_type' => 'span', 'element_wrapper_type' => 'div', 'element_wrapper_class' => 'athari-card__meta', 'label' => 'Region', 'element_label_colon' => TRUE, 'click_sort_column' => 'target_id']),
   'field_budget' => athari_pf('field_budget', [
     'type' => 'number_decimal',
     'settings' => ['thousand_separator' => ',', 'decimal_separator' => '.', 'scale' => 0, 'prefix_suffix' => TRUE],
-    'element_type' => 'div', 'element_class' => 'athari-card__meta', 'label' => 'Budget', 'element_label_colon' => TRUE,
+    'element_type' => 'span', 'element_wrapper_type' => 'div', 'element_wrapper_class' => 'athari-card__meta', 'label' => 'Budget', 'element_label_colon' => TRUE,
   ]),
 ];
 

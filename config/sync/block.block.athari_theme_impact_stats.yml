@@ -1,0 +1,29 @@
+uuid: a81ca4a6-1e3a-49dc-8643-9275b648645e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.impact_totals
+  module:
+    - system
+    - views
+  theme:
+    - athari_theme
+id: athari_theme_impact_stats
+theme: athari_theme
+region: content_above
+weight: -10
+provider: null
+plugin: 'views_block:impact_totals-block_1'
+settings:
+  id: 'views_block:impact_totals-block_1'
+  label: 'Impact at a glance'
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

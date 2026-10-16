@@ -1,0 +1,29 @@
+uuid: b2b39464-0249-442c-ab2b-9791f8c89c6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.home_cta
+  module:
+    - system
+    - views
+  theme:
+    - athari_theme
+id: athari_theme_home_cta
+theme: athari_theme
+region: content_below
+weight: 5
+provider: null
+plugin: 'views_block:home_cta-block_1'
+settings:
+  id: 'views_block:home_cta-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

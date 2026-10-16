@@ -1,0 +1,32 @@
+uuid: 19d144bc-88ad-4270-b465-f34ca2cdd2aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.project_locations_map
+  module:
+    - node
+    - views
+  theme:
+    - athari_theme
+id: athari_theme_project_locations
+theme: athari_theme
+region: content
+weight: 11
+provider: null
+plugin: 'views_block:project_locations_map-block_1'
+settings:
+  id: 'views_block:project_locations_map-block_1'
+  label: 'Project locations'
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      project: project

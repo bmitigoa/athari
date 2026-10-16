@@ -123,6 +123,15 @@ a:focus {
   color: var(--athari-green-dark);
 }
 
+.athari-btn--disabled,
+.athari-btn--disabled:hover {
+  opacity: 0.75;
+  cursor: not-allowed;
+  background: var(--athari-earth);
+  border-color: var(--athari-earth);
+  color: #fff;
+}
+
 /* 5. Hero (full-width region on the front page) */
 .region--hero {
   padding: 0;
@@ -172,7 +181,7 @@ a:focus {
    so the cards from the header view and the main view share one grid. */
 .athari-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 1rem;
   margin: 1.5rem 0;
 }
@@ -270,24 +279,38 @@ a:focus {
   font-weight: 700;
 }
 
-/* Card fields: label and value on one line, pill sized to its text. */
+/* Card fields: pill sized to its text; label and value share one line. */
 .athari-card .athari-pill {
   align-self: flex-start;
 }
 
-.athari-card .athari-pill .field-content,
-.athari-card__meta .field-content {
-  display: inline;
-}
-
-.athari-card__meta .views-label {
-  color: var(--athari-ink);
-  font-weight: 700;
-}
-
-.athari-card__meta,
-.athari-card__meta .field-content {
+.athari-card__meta {
   font-size: 0.95rem;
+  color: var(--athari-muted);
+}
+
+.athari-card__meta .field-content {
+  color: var(--athari-ink);
+  font-weight: 600;
+}
+
+/* Homepage blocks stack in one column and share a heading style. */
+.region--content-below {
+  display: block;
+}
+
+.region--content-below .block,
+.region--content-above .block {
+  max-width: none;
+  margin-block: 2rem;
+}
+
+.block__title {
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--athari-green-soft);
+  color: var(--athari-green-dark);
+  font-size: 1.5rem;
 }
 
 .athari-pill--active {

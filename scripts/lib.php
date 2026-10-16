@@ -34,13 +34,15 @@ function athari_lib_add_field(string $entity_type, string $bundle, string $name,
       'settings' => $opts['settings'] ?? [],
     ])->save();
   }
-  $form = EntityFormDisplay::load("$entity_type.$bundle.default");
+  $form = EntityFormDisplay::load("$entity_type.$bundle.default")
+    ?? EntityFormDisplay::create(['targetEntityType' => $entity_type, 'bundle' => $bundle, 'mode' => 'default', 'status' => TRUE]);
   $form->setComponent($name, [
     'type' => $opts['widget'],
     'weight' => $opts['weight'] ?? 0,
     'settings' => $opts['widget_settings'] ?? [],
   ])->save();
-  $view = EntityViewDisplay::load("$entity_type.$bundle.default");
+  $view = EntityViewDisplay::load("$entity_type.$bundle.default")
+    ?? EntityViewDisplay::create(['targetEntityType' => $entity_type, 'bundle' => $bundle, 'mode' => 'default', 'status' => TRUE]);
   $view->setComponent($name, [
     'type' => $opts['formatter'],
     'label' => $opts['label_display'] ?? 'above',

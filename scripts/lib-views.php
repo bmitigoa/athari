@@ -182,3 +182,47 @@ function athari_vchart(string $type, string $label_field, string $data_field, st
     ],
   ];
 }
+
+/**
+ * Leaflet style options shared by the map views.
+ */
+function athari_vleaflet(int $height, bool $fixed_uganda): array {
+  $position = ['force' => $fixed_uganda, 'center' => ['lat' => 1.3733, 'lon' => 32.2903], 'zoomControlPosition' => 'topleft', 'zoom' => 7, 'minZoom' => 5, 'maxZoom' => 18, 'zoomFiner' => 0];
+  return [
+    'type' => 'leaflet_map',
+    'options' => [
+      'grouping' => [],
+      'data_source' => 'field_coordinates',
+      'entity_source' => 'locations_rel',
+      'name_field' => '',
+      'description_field' => '',
+      'leaflet_popup' => ['value' => 'popup', 'options' => '{"maxWidth":"300","minWidth":"50", "autoPan": true}', 'view_mode' => 'full', 'control' => FALSE, 'content' => ''],
+      'height' => $height,
+      'height_unit' => 'px',
+      'hide_empty_map' => TRUE,
+      'map_position' => $position,
+      'uses_fields' => TRUE,
+    ],
+  ];
+}
+
+/**
+ * Fields needed to plot a project at each of its locations.
+ */
+function athari_vmap_fields(): array {
+  return [
+    'title' => athari_vf_base('title', 'node_field_data', 'title', 'node', ['exclude' => TRUE, 'settings' => ['link_to_entity' => TRUE]]),
+    'title_1' => athari_vf_base('title_1', 'node_field_data', 'title', 'node', ['relationship' => 'locations_rel', 'exclude' => TRUE, 'settings' => ['link_to_entity' => FALSE]]),
+    'field_coordinates' => athari_vf('field_coordinates', 'node__field_coordinates', 'field_coordinates', [
+      'relationship' => 'locations_rel', 'exclude' => TRUE, 'type' => 'geofield_default',
+      'settings' => ['output_format' => 'wkt', 'output_escape' => TRUE], 'click_sort_column' => 'value',
+    ]),
+    'popup' => [
+      'id' => 'popup', 'table' => 'views', 'field' => 'nothing', 'relationship' => 'none', 'group_type' => 'group',
+      'admin_label' => '', 'label' => '', 'exclude' => TRUE, 'plugin_id' => 'custom',
+      'alter' => ['alter_text' => TRUE, 'text' => '<strong>{{ title_1 }}</strong><br>Project: {{ title }}', 'make_link' => FALSE, 'absolute' => FALSE, 'word_boundary' => FALSE, 'ellipsis' => FALSE, 'strip_tags' => FALSE, 'trim' => FALSE, 'html' => FALSE],
+      'element_type' => '', 'element_class' => '', 'element_label_type' => '', 'element_label_class' => '', 'element_label_colon' => FALSE,
+      'element_wrapper_type' => '', 'element_wrapper_class' => '', 'element_default_classes' => TRUE, 'empty' => '', 'hide_empty' => FALSE, 'empty_zero' => FALSE, 'hide_alter_empty' => FALSE,
+    ],
+  ];
+}
