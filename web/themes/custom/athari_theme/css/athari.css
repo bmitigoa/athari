@@ -181,7 +181,7 @@ a:focus {
    so the cards from the header view and the main view share one grid. */
 .athari-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin: 1.5rem 0;
 }
@@ -192,6 +192,11 @@ a:focus {
 .athari-stats .view-content > div,
 .athari-stats .views-row {
   display: contents;
+}
+
+/* On /impact the charts live in the view footer: let them span every column. */
+.athari-stats > .view-footer {
+  grid-column: 1 / -1;
 }
 
 .athari-stat {
@@ -218,9 +223,10 @@ a:focus {
 .athari-stat__value {
   display: block;
   color: var(--athari-green-dark);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
   font-weight: 800;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .athari-stat__label {
@@ -482,13 +488,18 @@ table.views-table thead th a {
     padding: 3rem 1rem;
   }
 
+  .athari-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .athari-stat__value {
     font-size: 2rem;
   }
 
-  .views-table {
-    display: block;
-    overflow-x: auto;
+  /* Less important table columns drop out on phones (Views responsive priorities). */
+  .views-table .priority-low,
+  .views-table .priority-medium {
+    display: none;
   }
 
   .athari-cta {

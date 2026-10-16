@@ -1,4 +1,4 @@
-uuid: 1857a2ba-85f5-4552-92e6-6c300e3cb3cf
+uuid: a89a3745-72f9-4fd1-8d39-23a29aceebd9
 langcode: en
 status: true
 dependencies:
@@ -885,14 +885,14 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-medium
             field_region:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-medium
             field_status:
               sortable: true
               default_sort_order: asc
@@ -913,14 +913,14 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_end_date:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
           override: true
           sticky: false
           summary: ''
@@ -928,6 +928,7 @@ display:
           caption: ''
           description: ''
           class: ''
+          responsive: true
       row:
         type: fields
         options:

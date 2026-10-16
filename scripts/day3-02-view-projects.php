@@ -255,8 +255,11 @@ $view = View::create([
           'type' => 'table',
           'options' => [
             'grouping' => [], 'row_class' => '', 'default_row_class' => TRUE, 'columns' => array_combine(array_keys($table_fields), array_keys($table_fields)),
-            'default' => 'field_start_date', 'info' => array_map(fn($f) => ['sortable' => $f !== 'title' ? TRUE : TRUE, 'default_sort_order' => 'asc', 'align' => '', 'separator' => '', 'empty_column' => FALSE, 'responsive' => ''], $table_fields),
-            'override' => TRUE, 'sticky' => FALSE, 'summary' => '', 'empty_table' => FALSE, 'caption' => '', 'description' => '',
+            'default' => 'field_start_date', 'info' => array_combine(array_keys($table_fields), array_map(fn($f) => ['sortable' => TRUE, 'default_sort_order' => 'asc', 'align' => '', 'separator' => '', 'empty_column' => FALSE,
+              // Columns hidden on narrow screens by Drupal's responsive tables.
+              'responsive' => ['field_start_date' => 'priority-low', 'field_end_date' => 'priority-low', 'field_sector' => 'priority-medium', 'field_region' => 'priority-medium'][$f] ?? ''], array_keys($table_fields))),
+            'sticky' => FALSE, 'responsive' => TRUE,
+            'override' => TRUE, 'summary' => '', 'empty_table' => FALSE, 'caption' => '', 'description' => '',
           ],
         ],
         'row' => ['type' => 'fields', 'options' => ['default_field_elements' => TRUE, 'inline' => [], 'separator' => '', 'hide_empty' => FALSE]],
