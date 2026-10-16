@@ -1,4 +1,4 @@
-# Athari — Day 1 Report: Setup & Content Model
+# Athari â€” Day 1 Report: Setup & Content Model
 
 **Owner:** Baraka Mitigoa  **Project:** Athari (NGO Project & Impact Portal)  **Date:** 16 October 2026
 **Local site:** https://athari.ddev.site  **Admin login (local only):** `admin` / `admin`
@@ -44,13 +44,13 @@ Nothing was left incomplete from the Day 1 checklist. Two things were deliberate
 | **Sector** (`sector`) | Health, Education, WASH, Livelihoods, Protection | The thematic area of a project. Drives the filter and the "by sector" chart on Day 3. |
 | **Region** (`region`) | 4 top-level regions (Central, Eastern, Northern, Western), each with 5 child districts (20 districts) | Geography. Hierarchical, so a project can be tagged to a whole region or to a specific district. Drives the "by region" chart. |
 
-Districts used: Central – Kampala, Wakiso, Mukono, Masaka, Mpigi. Eastern – Jinja, Mbale, Soroti, Tororo, Busia. Northern – Gulu, Lira, Arua, Kitgum, Adjumani. Western – Mbarara, Kabarole, Kasese, Kabale, Hoima.
+Districts used: Central â€“ Kampala, Wakiso, Mukono, Masaka, Mpigi. Eastern â€“ Jinja, Mbale, Soroti, Tororo, Busia. Northern â€“ Gulu, Lira, Arua, Kitgum, Adjumani. Western â€“ Mbarara, Kabarole, Kasese, Kabale, Hoima.
 
 ### 2.3 Content types and fields
 
 All four types have revisions enabled and "Authored by/on" display switched off. "Promoted to front page" and "Sticky" are hidden from the edit forms, because the homepage will be built with Views on Day 3.
 
-**Partner** (`partner`) — an organisation involved in projects.
+**Partner** (`partner`) â€” an organisation involved in projects.
 
 | Field | Machine name | Type | Notes |
 |---|---|---|---|
@@ -58,15 +58,15 @@ All four types have revisions enabled and "Authored by/on" display switched off.
 | Logo | `field_logo` | Image | png/jpg/svg/webp, stored in `partners/`. |
 | Website | `field_website` | Link | External URL only. |
 
-**Location** (`location`) — a project site.
+**Location** (`location`) â€” a project site.
 
 | Field | Machine name | Type | Notes |
 |---|---|---|---|
 | Name | `title` | Text (core) | Site name. |
-| District | `field_district` | Entity reference → Region term | Required. |
+| District | `field_district` | Entity reference â†’ Region term | Required. |
 | Coordinates | `field_coordinates` | Geofield | Required. Entered as latitude/longitude. Leaflet will plot it on Day 3. |
 
-**Project** (`project`) — the central content type.
+**Project** (`project`) â€” the central content type.
 
 | Field | Machine name | Type | Notes |
 |---|---|---|---|
@@ -75,19 +75,19 @@ All four types have revisions enabled and "Authored by/on" display switched off.
 | Budget (USD) | `field_budget` | Decimal (14,2) | Minimum 0. |
 | Start date / End date | `field_start_date`, `field_end_date` | Date | Date only, no time. |
 | Status | `field_status` | List (text) | Planned / Active / Completed. Required. |
-| Sector | `field_sector` | Reference → Sector term | Required. |
-| Region | `field_region` | Reference → Region term | Required. Region or district. |
-| Locations | `field_locations` | Reference → Location nodes | Unlimited. Autocomplete. |
-| Partners | `field_partners` | Reference → Partner nodes | Unlimited. Autocomplete. |
+| Sector | `field_sector` | Reference â†’ Sector term | Required. |
+| Region | `field_region` | Reference â†’ Region term | Required. Region or district. |
+| Locations | `field_locations` | Reference â†’ Location nodes | Unlimited. Autocomplete. |
+| Partners | `field_partners` | Reference â†’ Partner nodes | Unlimited. Autocomplete. |
 
 I made Locations and Partners multi-value: a real project often has several sites and several partners, and a single value would have been a limitation later.
 
-**Report** (`report`) — a field report on a project.
+**Report** (`report`) â€” a field report on a project.
 
 | Field | Machine name | Type | Notes |
 |---|---|---|---|
 | Title | `title` | Text (core) | |
-| Project | `field_project` | Reference → Project | Required. Links each report to its project, the basis of all impact totals. |
+| Project | `field_project` | Reference â†’ Project | Required. Links each report to its project, the basis of all impact totals. |
 | Report date | `field_report_date` | Date | Required. |
 | Beneficiaries reached | `field_beneficiaries` | Integer | Required, minimum 0. Summed on Day 3. |
 | Funds spent (USD) | `field_funds_spent` | Decimal (14,2) | Required. Summed on Day 3. |
@@ -133,16 +133,16 @@ There is no custom module yet (`athari_donate` starts on Day 4). The only custom
 
 **`scripts/day1-content-model.php`** runs with `ddev drush php:script`, which boots Drupal and runs the script with full access to its APIs.
 
-- `athari_add_field()` — a helper that does four things for one field:
+- `athari_add_field()` â€” a helper that does four things for one field:
   1. creates **field storage** (`FieldStorageConfig`): the column(s) in the database, type and cardinality;
   2. creates a **field instance** (`FieldConfig`): the field attached to one content type, with label, required flag and settings;
   3. adds the field to the **form display** (`EntityFormDisplay`) with a widget;
   4. adds it to the **view display** (`EntityViewDisplay`) with a formatter.
   It checks whether each piece exists first, so the script can be re-run safely.
-- `athari_ref()` — builds the settings for an entity reference field: the target entity type and which bundles (vocabularies or content types) may be referenced.
-- Vocabularies and terms — `Vocabulary::create()` and `Term::create()`. Districts are created with the region as their `parent`, giving the hierarchy.
-- Content types — `NodeType::create()` for the four types.
-- Pathauto — `PathautoPattern::create()` with a selection condition (`entity_bundle:node`) so each pattern only applies to its own type.
+- `athari_ref()` â€” builds the settings for an entity reference field: the target entity type and which bundles (vocabularies or content types) may be referenced.
+- Vocabularies and terms â€” `Vocabulary::create()` and `Term::create()`. Districts are created with the region as their `parent`, giving the hierarchy.
+- Content types â€” `NodeType::create()` for the four types.
+- Pathauto â€” `PathautoPattern::create()` with a selection condition (`entity_bundle:node`) so each pattern only applies to its own type.
 
 **Data flow:** the script writes Drupal *config entities* to the database. `drush cex` then exports them to YAML in `config/sync`. On another machine, `drush cim` reads the YAML back, so the same structure appears without re-running the script.
 
@@ -152,14 +152,14 @@ There is no custom module yet (`athari_donate` starts on Day 4). The only custom
 
 1. Start the project if needed: `ddev start` (from `C:\NGO\Athari`).
 2. Open https://athari.ddev.site and log in at https://athari.ddev.site/user/login with `admin` / `admin`. (Or run `ddev drush uli` for a one-time login link.)
-3. **Taxonomies:** Structure → Taxonomy (`/admin/structure/taxonomy`). Open **Region** to see the regions and their child districts.
-4. **Content types:** Structure → Content types (`/admin/structure/types`). Open **Project** → *Manage fields* to see all fields; *Manage form display* to see the edit-form layout.
-5. **Try it:** Content → Add content (`/node/add`).
+3. **Taxonomies:** Structure â†’ Taxonomy (`/admin/structure/taxonomy`). Open **Region** to see the regions and their child districts.
+4. **Content types:** Structure â†’ Content types (`/admin/structure/types`). Open **Project** â†’ *Manage fields* to see all fields; *Manage form display* to see the edit-form layout.
+5. **Try it:** Content â†’ Add content (`/node/add`).
    - Add a **Partner**, then a **Location** (coordinates e.g. latitude 2.7746, longitude 32.2990 for Gulu).
    - Add a **Project** that references the location and partner.
    - Add a **Report** that references the project.
    - After saving, check the URL: it should look like `/projects/your-title`.
-6. **Pathauto:** Configuration → Search and metadata → URL aliases → Patterns (`/admin/config/search/path/patterns`).
+6. **Pathauto:** Configuration â†’ Search and metadata â†’ URL aliases â†’ Patterns (`/admin/config/search/path/patterns`).
 7. Bulk-generate aliases for existing content any time: `ddev drush pathauto:aliases-generate create all`.
 
 ---
@@ -191,8 +191,8 @@ There is no custom module yet (`athari_donate` starts on Day 4). The only custom
 
 - **Docroot and Composer:** Drupal's public files live in `web/`; everything else (`vendor/`, `config/`, `composer.json`) stays outside the web server's reach, which is more secure. Composer downloads and versions all code; you never download modules by hand.
 - **Content type, node, field:** A *node* is one piece of content. A *content type* (bundle) defines what fields a node has. A *field* has two halves: *storage* (database definition, shared across types) and an *instance* (its use on one bundle).
-- **Entity reference:** A field that points to another entity (a taxonomy term or node) by ID. Project → Sector is a term reference; Report → Project is a node reference. This is how Drupal models relationships, and what Views aggregates over on Day 3.
-- **Taxonomy:** Vocabularies of terms for classification. Region is hierarchical (parent/child) to model region → district.
+- **Entity reference:** A field that points to another entity (a taxonomy term or node) by ID. Project â†’ Sector is a term reference; Report â†’ Project is a node reference. This is how Drupal models relationships, and what Views aggregates over on Day 3.
+- **Taxonomy:** Vocabularies of terms for classification. Region is hierarchical (parent/child) to model region â†’ district.
 - **Form display vs view display:** The form display decides which widget edits a field; the view display decides how the field is shown to visitors. Both are configuration.
 - **Configuration management:** Site structure (types, fields, views) is stored as config in the database and can be exported to YAML (`cex`) and imported (`cim`). *Content* (nodes, terms) is not config, so it is not in Git. Day 2 seeds content with a script instead.
 - **Pathauto and tokens:** Pathauto builds URL aliases from patterns; tokens like `[node:title]` are replaced with real values.
@@ -205,13 +205,13 @@ There is no custom module yet (`athari_donate` starts on Day 4). The only custom
 
 | Issue | Cause | Fix |
 |---|---|---|
-| Docker, WSL2 and DDEV were missing at the start. | Fresh machine. | Installed them following the steps given (WSL2 → Docker Desktop → DDEV). |
+| Docker, WSL2 and DDEV were missing at the start. | Fresh machine. | Installed them following the steps given (WSL2 â†’ Docker Desktop â†’ DDEV). |
 | `wsl --install` failed: "connection with the server was reset". | Network drop during download. | Retried with `--web-download`; completed. |
 | `winget install DDEV.DDEV` said "No package found". | DDEV's winget ID changed. | `winget search ddev` showed `DDEVFoundation.DDEV`. |
 | `mkcert -install` printed a Java `keytool` error for Android Studio. | mkcert tried to add its certificate to Android Studio's Java store, which needs admin rights. | Ignored: the Windows trust store (used by browsers) was updated successfully. |
 | `ddev composer create` wants an empty folder, but the folder already held `CLAUDE.md` and DDEV files. | Composer's create-project refuses non-empty targets. | Created the project in a temp folder inside the container, copied `composer.json` and `composer.lock`, then ran `composer install`. |
 | First `drush/drush` install did not run. | A PowerShell pipe to `tail` (a Linux command) errored. | Re-ran without the pipe. |
-| Some `ddev drush` calls hung when run from PowerShell. | Drush waited on input from the console. | Used `ddev exec "drush … < /dev/null"` and killed the stuck process. |
+| Some `ddev drush` calls hung when run from PowerShell. | Drush waited on input from the console. | Used `ddev exec "drush â€¦ < /dev/null"` and killed the stuck process. |
 | `git status` showed no config changes straight after `drush cex`. | Mutagen had not synced the new files to Windows yet. | Ran `ddev mutagen sync` before committing. |
 | URL aliases were missing for taxonomy terms. | The terms were created before the patterns existed. | Ran `pathauto:aliases-generate create all`. |
 | Git warns "LF will be replaced by CRLF". | Windows line-ending setting. | Harmless; not changed, as git config must stay as is. |
@@ -223,20 +223,20 @@ There is no custom module yet (`athari_donate` starts on Day 4). The only custom
 ## 9. Git log
 
 ```
-6ec7121 chore: scaffold Drupal 11 project with DDEV and Drush
-7e60ee5 config: initial Drupal standard profile configuration export
-22db358 feat: add contrib modules (admin toolbar, pathauto, token, geofield, leaflet, charts, address, devel)
-cdd9936 chore: add Day 1 content model build script
-814471a config: add sector/region taxonomies, project/location/partner/report content types and pathauto patterns
+f31589c chore: scaffold Drupal 11 project with DDEV and Drush
+91b1dc5 config: initial Drupal standard profile configuration export
+41144d5 feat: add contrib modules (admin toolbar, pathauto, token, geofield, leaflet, charts, address, devel)
+275610e chore: add Day 1 content model build script
+96e38bd config: add sector/region taxonomies, project/location/partner/report content types and pathauto patterns
 ```
 
-A final `docs: day 1 report` commit adds this report and the PDF.
+Two further commits followed: `docs: day 1 report` (4cb7a3a) added this report and its PDF, and `chore: untrack local tooling files` (d93d491) stopped tracking `CLAUDE.md`. The history was later rewritten to remove `CLAUDE.md` entirely, which is why these hashes differ from any earlier ones.
 
 ---
 
-## 10. Next day (Day 2 — Roles, Workflow & Sample Data)
+## 10. Next day (Day 2 â€” Roles, Workflow & Sample Data)
 
 - Create roles: Field Officer, M&E Reviewer, Admin, plus one test user per role.
-- Enable Content Moderation and Workflows with Draft → In Review → Published → Archived on Reports.
+- Enable Content Moderation and Workflows with Draft â†’ In Review â†’ Published â†’ Archived on Reports.
 - Set permissions: field officers create/edit their own reports and submit for review, reviewers approve or reject, admins manage everything.
 - Seed realistic data: about 10 projects, 15 Ugandan locations with real coordinates, 5 partners and 30 reports.
