@@ -46,6 +46,7 @@
 
 # Tooling and OS
 /.claude/
+/CLAUDE.md
 /.idea/
 /.vscode/
 .DS_Store
