@@ -28,6 +28,7 @@
         "drupal/jsonapi_extras": "^3.28",
         "drupal/leaflet": "^10.4",
         "drupal/pathauto": "^1.15",
+        "drupal/role_delegation": "^1.6",
         "drupal/token": "^1.17",
         "drush/drush": "^13.8"
     },
