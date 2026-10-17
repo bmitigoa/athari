@@ -1,0 +1,47 @@
+﻿API|Index lists exactly six resources|locations,partners,projects,regions,reports,sectors|locations,partners,projects,regions,reports,sectors|PASS
+API|GET /jsonapi is not available|blocked|blocked|PASS
+API|GET /jsonapi/user/user is not available|blocked|blocked|PASS
+API|GET /jsonapi/athari_donation/athari_donation is not available|blocked|blocked|PASS
+API|GET /api/user/user is not available|blocked|blocked|PASS
+API|GET /api/users is not available|blocked|blocked|PASS
+API|GET /api/donations is not available|blocked|blocked|PASS
+API|GET /api/athari_donation/athari_donation is not available|blocked|blocked|PASS
+API|GET /api/node/page is not available|blocked|blocked|PASS
+API|GET /api/pages is not available|blocked|blocked|PASS
+API|GET /api/file/file is not available|blocked|blocked|PASS
+API|GET /api/user_role/user_role is not available|blocked|blocked|PASS
+API|GET /api/taxonomy_vocabulary/taxonomy_vocabulary is not available|blocked|blocked|PASS
+API|A Basic page is not served by the API|404|404|PASS
+API|A user account is not served by the API|404|404|PASS
+API|Reports in the API|16|16|PASS
+API|No total count that would reveal unpublished reports|absent|absent|PASS
+API|A draft report is not available by its address|blocked|blocked|PASS
+API|A draft report is not in the list|0|0|PASS
+API|A in_review report is not available by its address|blocked|blocked|PASS
+API|A in_review report is not in the list|0|0|PASS
+API|A archived report is not available by its address|blocked|blocked|PASS
+API|A archived report is not in the list|0|0|PASS
+API|A published report is available|200|200|PASS
+API|Public output has no e-mail address (any @)|0|0|PASS
+API|Public output has no "mail" field|0|0|PASS
+API|Public output has no user names of test accounts|0|0|PASS
+API|Public output has no password or hash|0|0|PASS
+API|Public output has no Daraja or M-Pesa credentials|0|0|PASS
+API|Public output has no donor phone numbers|0|0|PASS
+API|Public output has no moderation state|0|0|PASS
+API|Public output has no author relationship|0|0|PASS
+API|Public output has no file attachments|0|0|PASS
+API|POST /api/projects is refused|refused|refused|PASS
+API|PATCH /api/projects is refused|refused|refused|PASS
+API|DELETE /api/projects is refused|refused|refused|PASS
+API|Filter: WASH projects|2|2|PASS
+API|Include: locations of the WASH projects|3|3|PASS
+API|Filter: projects in Turkana county|1|1|PASS
+API|Filter: projects in the Rift Valley province|1|1|PASS
+API|Filter: active projects|6|6|PASS
+API|Sort: biggest active budget first (KES)|31000000|31000000|PASS
+API|Regions (8 provinces and 47 counties)|55|55|PASS
+API|Sectors|5|5|PASS
+API|Impact: beneficiaries (published reports only)|39360|39360|PASS
+API|Impact: funds spent KES (published reports only)|59930000|59930000|PASS
+SUMMARY|ALL 46 API CHECKS PASSED
