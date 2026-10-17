@@ -1,0 +1,18 @@
+uuid: c2c3b8eb-9939-45fc-b103-6a7b58c6f52c
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: Development
+description: 'Developer tools (Devel, Devel Generate). Active only on DDEV; never on a live site.'
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../config/dev
+module:
+  devel: 0
+  devel_generate: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

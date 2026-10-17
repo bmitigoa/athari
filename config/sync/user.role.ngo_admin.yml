@@ -17,6 +17,7 @@ dependencies:
     - node
     - path
     - pathauto
+    - role_delegation
     - system
     - taxonomy
     - toolbar
@@ -38,11 +39,12 @@ permissions:
   - 'administer node form display'
   - 'administer nodes'
   - 'administer pathauto'
-  - 'administer permissions'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer users'
   - 'administer workflows'
+  - 'assign field_officer role'
+  - 'assign me_reviewer role'
   - 'create location content'
   - 'create partner content'
   - 'create project content'

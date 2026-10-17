@@ -891,11 +891,37 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 // Automatically generated include for settings managed by ddev.
 $settings['config_sync_directory'] = '../config/sync';
 
+// Athari defaults. A live server overrides them in settings.local.php or with
+// environment variables; nothing secret belongs in this tracked file.
+//
+// Private files (for example donation exports in future) live outside the web root.
+$settings['file_private_path'] = $app_root . '/../private';
+
+// The "dev" config split (Devel and Devel Generate) is active on DDEV only.
+// Errors are hidden by default in the exported config; show them on DDEV.
+if (getenv('IS_DDEV_PROJECT') == 'true') {
+  $config['config_split.config_split.dev']['status'] = TRUE;
+  $config['system.logging']['error_level'] = 'verbose';
+}
+
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
   include __DIR__ . '/settings.ddev.php';
+}
+
+// Set AFTER the DDEV include, which would otherwise allow every host name.
+// Only these host names may serve the site (Host header spoofing protection).
+// On a server set ATHARI_TRUSTED_HOSTS to comma-separated regular expressions,
+// for example: ^athari\.example\.org$,^www\.athari\.example\.org$
+// A non-wildcard list set in settings.local.php is kept as it is.
+$trusted_hosts = getenv('ATHARI_TRUSTED_HOSTS');
+$current_hosts = $settings['trusted_host_patterns'] ?? [];
+if (!$current_hosts || $current_hosts === ['.*']) {
+  $settings['trusted_host_patterns'] = $trusted_hosts
+    ? array_map('trim', explode(',', $trusted_hosts))
+    : ['^athari\.ddev\.site$', '^localhost$', '^127\.0\.0\.1$'];
 }
 
 /**
