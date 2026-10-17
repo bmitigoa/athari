@@ -921,7 +921,7 @@ $current_hosts = $settings['trusted_host_patterns'] ?? [];
 if (!$current_hosts || $current_hosts === ['.*']) {
   $settings['trusted_host_patterns'] = $trusted_hosts
     ? array_map('trim', explode(',', $trusted_hosts))
-    : ['^athari\.ddev\.site$', '^localhost$', '^127\.0\.0\.1$'];
+    : ['^[a-z0-9-]+\.ddev\.site$', '^localhost$', '^127\.0\.0\.1$'];
 }
 
 /**
