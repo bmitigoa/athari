@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 670" width="1000" height="670" font-family="Segoe UI, Arial, sans-serif"><defs><marker id="m" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#25302a"/></marker></defs><rect width="1000" height="670" fill="#f6f1e7"/><text x="500.0" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#1f4a36">Athari data model</text><rect x="20" y="60" width="250" height="150" rx="8" fill="#fff" stroke="#1f4a36" stroke-width="2"/>
+<rect x="20" y="60" width="250" height="28" rx="8" fill="#1f4a36"/>
+<rect x="20" y="74" width="250" height="14" fill="#1f4a36"/>
+<text x="145.0" y="79" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Region (taxonomy)</text>
+<text x="30" y="108" font-size="13" fill="#25302a">8 former provinces (top level)</text>
+<text x="30" y="126" font-size="13" fill="#25302a">47 counties (children)</text>
+<text x="30" y="144" font-size="13" fill="#25302a">name, parent</text>
+<text x="30" y="162" font-size="13" fill="#25302a">URL: /region/kisumu</text>
+<rect x="20" y="240" width="250" height="110" rx="8" fill="#fff" stroke="#1f4a36" stroke-width="2"/>
+<rect x="20" y="240" width="250" height="28" rx="8" fill="#1f4a36"/>
+<rect x="20" y="254" width="250" height="14" fill="#1f4a36"/>
+<text x="145.0" y="259" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Sector (taxonomy)</text>
+<text x="30" y="288" font-size="13" fill="#25302a">Health, Education, WASH,</text>
+<text x="30" y="306" font-size="13" fill="#25302a">Livelihoods, Protection</text>
+<rect x="330" y="60" width="290" height="290" rx="8" fill="#fff" stroke="#2f6b4f" stroke-width="2"/>
+<rect x="330" y="60" width="290" height="28" rx="8" fill="#2f6b4f"/>
+<rect x="330" y="74" width="290" height="14" fill="#2f6b4f"/>
+<text x="475.0" y="79" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Project (content)</text>
+<text x="340" y="108" font-size="13" fill="#25302a">title, description</text>
+<text x="340" y="126" font-size="13" fill="#25302a">budget (KES)</text>
+<text x="340" y="144" font-size="13" fill="#25302a">start date, end date</text>
+<text x="340" y="162" font-size="13" fill="#25302a">status: planned / active / completed</text>
+<text x="340" y="180" font-size="13" fill="#25302a">sector  to  Sector</text>
+<text x="340" y="198" font-size="13" fill="#25302a">county  to  Region (a county)</text>
+<text x="340" y="216" font-size="13" fill="#25302a">locations  to  Location (many)</text>
+<text x="340" y="234" font-size="13" fill="#25302a">partners  to  Partner (many)</text>
+<text x="340" y="252" font-size="13" fill="#25302a">URL: /projects/&lt;title&gt;</text>
+<rect x="680" y="60" width="240" height="130" rx="8" fill="#fff" stroke="#2f6b4f" stroke-width="2"/>
+<rect x="680" y="60" width="240" height="28" rx="8" fill="#2f6b4f"/>
+<rect x="680" y="74" width="240" height="14" fill="#2f6b4f"/>
+<text x="800.0" y="79" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Location (content)</text>
+<text x="690" y="108" font-size="13" fill="#25302a">title</text>
+<text x="690" y="126" font-size="13" fill="#25302a">county  to  Region</text>
+<text x="690" y="144" font-size="13" fill="#25302a">coordinates (lat, lon)</text>
+<rect x="680" y="220" width="240" height="130" rx="8" fill="#fff" stroke="#2f6b4f" stroke-width="2"/>
+<rect x="680" y="220" width="240" height="28" rx="8" fill="#2f6b4f"/>
+<rect x="680" y="234" width="240" height="14" fill="#2f6b4f"/>
+<text x="800.0" y="239" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Partner (content)</text>
+<text x="690" y="268" font-size="13" fill="#25302a">title, website, logo</text>
+<text x="690" y="286" font-size="13" fill="#25302a">address (Kenya)</text>
+<text x="690" y="304" font-size="13" fill="#25302a">fictional organisations</text>
+<rect x="330" y="400" width="290" height="240" rx="8" fill="#fff" stroke="#2f6b4f" stroke-width="2"/>
+<rect x="330" y="400" width="290" height="28" rx="8" fill="#2f6b4f"/>
+<rect x="330" y="414" width="290" height="14" fill="#2f6b4f"/>
+<text x="475.0" y="419" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Report (content, moderated)</text>
+<text x="340" y="448" font-size="13" fill="#25302a">title, report date</text>
+<text x="340" y="466" font-size="13" fill="#25302a">project  to  Project</text>
+<text x="340" y="484" font-size="13" fill="#25302a">beneficiaries reached</text>
+<text x="340" y="502" font-size="13" fill="#25302a">funds spent (KES)</text>
+<text x="340" y="520" font-size="13" fill="#25302a">narrative, attachments</text>
+<text x="340" y="538" font-size="13" fill="#25302a">states: Draft, In Review,</text>
+<text x="340" y="556" font-size="13" fill="#25302a">  Published, Archived</text>
+<text x="340" y="574" font-size="13" fill="#25302a">Only Published counts in totals</text>
+<rect x="680" y="400" width="300" height="240" rx="8" fill="#fff" stroke="#c0682f" stroke-width="2"/>
+<rect x="680" y="400" width="300" height="28" rx="8" fill="#c0682f"/>
+<rect x="680" y="414" width="300" height="14" fill="#c0682f"/>
+<text x="830.0" y="419" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Donation (custom entity)</text>
+<text x="690" y="448" font-size="13" fill="#25302a">project  to  Project</text>
+<text x="690" y="466" font-size="13" fill="#25302a">amount (KES), phone (masked)</text>
+<text x="690" y="484" font-size="13" fill="#25302a">status: pending / success /</text>
+<text x="690" y="502" font-size="13" fill="#25302a">  failed / cancelled</text>
+<text x="690" y="520" font-size="13" fill="#25302a">M-Pesa receipt, result code</text>
+<text x="690" y="538" font-size="13" fill="#25302a">MerchantRequestID,</text>
+<text x="690" y="556" font-size="13" fill="#25302a">CheckoutRequestID</text>
+<text x="690" y="574" font-size="13" fill="#25302a">created, changed, paid</text>
+<rect x="20" y="400" width="250" height="240" rx="8" fill="#fff" stroke="#7a9e7e" stroke-width="2"/>
+<rect x="20" y="400" width="250" height="28" rx="8" fill="#7a9e7e"/>
+<rect x="20" y="414" width="250" height="14" fill="#7a9e7e"/>
+<text x="145.0" y="419" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Users and roles</text>
+<text x="30" y="448" font-size="13" fill="#25302a">Field Officer: create and edit</text>
+<text x="30" y="466" font-size="13" fill="#25302a">  own reports, submit</text>
+<text x="30" y="484" font-size="13" fill="#25302a">M&amp;E Reviewer: approve, reject,</text>
+<text x="30" y="502" font-size="13" fill="#25302a">  archive</text>
+<text x="30" y="520" font-size="13" fill="#25302a">Admin: content, staff users</text>
+<text x="30" y="538" font-size="13" fill="#25302a">Anonymous: read published</text>
+<line x1="330" y1="120" x2="272" y2="120" stroke="#25302a" stroke-width="2" marker-end="url(#m)"/><text x="300" y="112" text-anchor="middle" font-size="12" fill="#25302a">county</text>
+<line x1="330" y1="290" x2="272" y2="290" stroke="#25302a" stroke-width="2" marker-end="url(#m)"/><text x="300" y="282" text-anchor="middle" font-size="12" fill="#25302a">sector</text>
+<line x1="620" y1="110" x2="678" y2="110" stroke="#25302a" stroke-width="2" marker-end="url(#m)"/><text x="650" y="102" text-anchor="middle" font-size="12" fill="#25302a">many</text>
+<line x1="620" y1="270" x2="678" y2="270" stroke="#25302a" stroke-width="2" marker-end="url(#m)"/><text x="650" y="262" text-anchor="middle" font-size="12" fill="#25302a">many</text>
+<line x1="475" y1="400" x2="475" y2="352" stroke="#25302a" stroke-width="2" marker-end="url(#m)"/><text x="505" y="380" text-anchor="middle" font-size="12" fill="#25302a">project</text>
+<line x1="680" y1="520" x2="622" y2="340" stroke="#25302a" stroke-width="2" marker-end="url(#m)"/><text x="670" y="436" text-anchor="middle" font-size="12" fill="#25302a">project</text>
+<line x1="272" y1="520" x2="328" y2="520" stroke="#25302a" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#m)"/><text x="300" y="512" text-anchor="middle" font-size="12" fill="#25302a">author</text></svg>
