@@ -1,0 +1,47 @@
+﻿SECHTTP|GET /user/register is not readable|not readable|not readable|PASS
+SECHTTP|GET /user/1 is not readable|not readable|not readable|PASS
+SECHTTP|GET /admin is not readable|not readable|not readable|PASS
+SECHTTP|GET /admin/config is not readable|not readable|not readable|PASS
+SECHTTP|GET /admin/people is not readable|not readable|not readable|PASS
+SECHTTP|GET /admin/reports/status is not readable|not readable|not readable|PASS
+SECHTTP|GET /admin/content/donations is not readable|not readable|not readable|PASS
+SECHTTP|GET /admin/config/athari/donate is not readable|not readable|not readable|PASS
+SECHTTP|GET /node/add/report is not readable|not readable|not readable|PASS
+SECHTTP|GET /update.php is not readable|not readable|not readable|PASS
+SECHTTP|GET /core/install.php (development server only: blocked by the live server rules)|info|info|INFO
+SECHTTP|GET /sites/default/settings.php (development server only: blocked by the live server rules)|info|info|INFO
+SECHTTP|GET /sites/default/settings.local.php (development server only: blocked by the live server rules)|info|info|INFO
+SECHTTP|GET /sites/default/settings.ddev.php (development server only: blocked by the live server rules)|info|info|INFO
+SECHTTP|GET /sites/default/services.yml (development server only: blocked by the live server rules)|info|info|INFO
+SECHTTP|GET /composer.json is not readable|not readable|not readable|PASS
+SECHTTP|GET /composer.lock is not readable|not readable|not readable|PASS
+SECHTTP|GET /vendor/autoload.php is not readable|not readable|not readable|PASS
+SECHTTP|GET /config/sync/system.site.yml is not readable|not readable|not readable|PASS
+SECHTTP|GET /config/sync/athari_donate.settings.yml is not readable|not readable|not readable|PASS
+SECHTTP|GET /.git/config is not readable|not readable|not readable|PASS
+SECHTTP|GET /.env is not readable|not readable|not readable|PASS
+SECHTTP|GET /.ddev/config.yaml is not readable|not readable|not readable|PASS
+SECHTTP|GET /private/ is not readable|not readable|not readable|PASS
+SECHTTP|GET /scripts/day4-04-seed-donations.php is not readable|not readable|not readable|PASS
+SECHTTP|GET /CLAUDE.md is not readable|not readable|not readable|PASS
+SECHTTP|GET /web/README.md is not readable|not readable|not readable|PASS
+SECHTTP|GET /core/CHANGELOG.txt (development server only: blocked by the live server rules)|info|info|INFO
+SECHTTP|GET /core/INSTALL.txt (development server only: blocked by the live server rules)|info|info|INFO
+SECHTTP|GET /sites/default/files/.htaccess is not readable|not readable|not readable|PASS
+SECHTTP|GET /athari/mpesa/callback/00000000000000000000000000000000 is not readable|not readable|not readable|PASS
+SECHTTP|GET / works|200|200|PASS
+SECHTTP|GET /projects works|200|200|PASS
+SECHTTP|GET /impact works|200|200|PASS
+SECHTTP|GET /map works|200|200|PASS
+SECHTTP|GET /about works|200|200|PASS
+SECHTTP|GET /donate works|200|200|PASS
+SECHTTP|GET /api works|200|200|PASS
+SECHTTP|GET /api/impact works|200|200|PASS
+SECHTTP|GET /user/login works|200|200|PASS
+SECHTTP|GET /robots.txt works|200|200|PASS
+SECHTTP|X-Content-Type-Options: nosniff|nosniff|nosniff|PASS
+SECHTTP|X-Frame-Options is set|SAMEORIGIN|SAMEORIGIN|PASS
+SECHTTP|No PHP version header (X-Powered-By)|absent|absent|PASS
+SECHTTP|X-Generator header (informational: removed at the live web server)|info|info|PASS
+SECHTTP|Failed login does not say which part was wrong|0|0|PASS
+SUMMARY|ALL 39 HTTP SECURITY CHECKS PASSED

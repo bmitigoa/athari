@@ -1,0 +1,47 @@
+﻿SEC|Exported config: Devel is not enabled|[]|[]|PASS
+SEC|Exported config: error display is off|hide|hide|PASS
+SEC|Exported config: cron fallback every 3 hours|10800|10800|PASS
+SEC|Exported config: Update Status module is on|yes|yes|PASS
+SEC|Exported config: public registration is admin-only|admin_only|admin_only|PASS
+SEC|Exported config: JSON:API is read-only|yes|yes|PASS
+SEC|Exported config: new JSON:API resources are off by default|yes|yes|PASS
+SEC|Dev split exists and is OFF in the export|no|no|PASS
+SEC|Dev split holds Devel and Devel Generate|["devel","devel_generate"]|["devel","devel_generate"]|PASS
+SEC|Dev split folder has the Devel configuration|yes|yes|PASS
+SEC|Exported config: Daraja consumer key is empty|||PASS
+SEC|Exported config: Daraja consumer secret is empty|||PASS
+SEC|Exported config: Daraja passkey is empty|||PASS
+SEC|Exported config: no callback tunnel URL|||PASS
+SEC|Exported config: no tunnel address or callback token anywhere|0|0|PASS
+SEC|Trusted host patterns are set (not a wildcard)|yes|yes|PASS
+SEC|Private file path is set|yes|yes|PASS
+SEC|Private file path is outside the web root|yes|yes|PASS
+SEC|Private file path exists|yes|yes|PASS
+SEC|Update access check is on (update_free_access)|no|no|PASS
+SEC|Config sync directory is outside the web root|yes|yes|PASS
+SEC|Role anonymous has exactly the designed permissions|["access content","make donations","use text format restricted_html"]|["access content","make donations","use text format restricted_html"]|PASS
+SEC|Role authenticated has exactly the designed permissions|["access content","delete own files","make donations","use text format basic_html"]|["access content","delete own files","make donations","use text format basic_html"]|PASS
+SEC|Role field_officer has exactly the designed permissions|["access content","access content overview","access toolbar","create report content","edit own report content","use report_review transition create_draft","use report_review transition submit_for_review","view latest version","view own unpublished content","view the administration theme"]|["access content","access content overview","access toolbar","create report content","edit own report content","use report_review transition create_draft","use report_review transition submit_for_review","view latest version","view own unpublished content","view the administration theme"]|PASS
+SEC|Role me_reviewer has exactly the designed permissions|["access content","access content overview","access toolbar","edit any report content","use report_review transition archive","use report_review transition publish","use report_review transition republish","use report_review transition return_to_draft","view all revisions","view any unpublished content","view latest version","view the administration theme"]|["access content","access content overview","access toolbar","edit any report content","use report_review transition archive","use report_review transition publish","use report_review transition republish","use report_review transition return_to_draft","view all revisions","view any unpublished content","view latest version","view the administration theme"]|PASS
+SEC|Roles that exist|["administrator","anonymous","authenticated","field_officer","me_reviewer","ngo_admin"]|["administrator","anonymous","authenticated","field_officer","me_reviewer","ngo_admin"]|PASS
+SEC|Admin role does NOT have 'administer permissions'|no|no|PASS
+SEC|Admin role does NOT have 'administer modules'|no|no|PASS
+SEC|Admin role does NOT have 'administer site configuration'|no|no|PASS
+SEC|Admin role does NOT have 'administer software updates'|no|no|PASS
+SEC|Admin role does NOT have 'administer themes'|no|no|PASS
+SEC|Admin role does NOT have 'administer views'|no|no|PASS
+SEC|Admin role does NOT have 'administer athari donations'|no|no|PASS
+SEC|Admin role does NOT have 'use text format full_html'|no|no|PASS
+SEC|Admin role does NOT have 'bypass node access'|no|no|PASS
+SEC|Admin role has 'assign field_officer role'|yes|yes|PASS
+SEC|Admin role has 'assign me_reviewer role'|yes|yes|PASS
+SEC|Admin role has 'administer users'|yes|yes|PASS
+SEC|Admin role has 'view athari donations'|yes|yes|PASS
+SEC|Admin role has 'administer athari donate'|yes|yes|PASS
+SEC|Admin cannot assign the Administrator or Admin roles|no|no|PASS
+SEC|Role anonymous cannot see the donations report or settings|no|no|PASS
+SEC|Role authenticated cannot see the donations report or settings|no|no|PASS
+SEC|Role field_officer cannot see the donations report or settings|no|no|PASS
+SEC|Role me_reviewer cannot see the donations report or settings|no|no|PASS
+SEC|Only the Administrator may use the Full HTML text format|["administrator"]|["administrator"]|PASS
+SUMMARY|ALL 46 SECURITY CONFIG CHECKS PASSED
