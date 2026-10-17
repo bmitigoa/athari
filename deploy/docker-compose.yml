@@ -1,0 +1,69 @@
+# Athari production stack: MariaDB + the web app (Drupal on FrankenPHP/Caddy).
+#
+# Run through deploy/install.sh, which creates deploy/.env and the secrets
+# directory first. Manual use:
+#   docker compose --env-file deploy/.env -f deploy/docker-compose.yml up -d
+name: athari
+
+services:
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: athari
+      MARIADB_USER: athari
+      MARIADB_PASSWORD: ${DB_PASSWORD:?run deploy/install.sh}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?run deploy/install.sh}
+      MARIADB_AUTO_UPGRADE: "1"
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_general_ci
+      - --innodb-buffer-pool-size=192M
+      - --max-connections=60
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    # Not published to the host: only the app container can reach the database.
+
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: athari-app:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:?run deploy/install.sh}
+      CADDY_GLOBAL_OPTIONS: ${CADDY_GLOBAL_OPTIONS:-}
+      ATHARI_TRUSTED_HOSTS: ${TRUSTED_HOSTS:-}
+    ports:
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+      - "${HTTPS_PORT:-443}:443/udp"
+    volumes:
+      - files:/app/web/sites/default/files
+      - private:/app/private
+      - caddy_data:/data
+      - caddy_config:/config
+      # Credentials and the database password live on the host, outside the image and Git.
+      - ${SECRETS_DIR:?run deploy/install.sh}/settings.local.php:/app/web/sites/default/settings.local.php:ro
+    healthcheck:
+      # Port 80 answers with a redirect to HTTPS (or the page); both are healthy.
+      test: ["CMD-SHELL", "curl -fsS -o /dev/null http://localhost:80/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  db:
+  files:
+  private:
+  caddy_data:
+  caddy_config:

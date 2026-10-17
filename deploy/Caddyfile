@@ -1,0 +1,62 @@
+# Athari web server (Caddy inside FrankenPHP).
+#
+# SITE_ADDRESS is the public host name (HTTPS and certificates are automatic),
+# or localhost:8443 for a local test. Set in deploy/.env by install.sh.
+{
+	frankenphp
+	order php_server before file_server
+	{$CADDY_GLOBAL_OPTIONS}
+}
+
+{$SITE_ADDRESS:localhost} {
+	root * /app/web
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+		# Do not advertise the software or its version.
+		-Server
+		-X-Powered-By
+		-X-Generator
+	}
+
+	request_body {
+		max_size 20MB
+	}
+
+	# Never serve hidden files (except /.well-known for certificates).
+	@dotfiles {
+		path_regexp dotfile (^|/)\.[^/]+
+		not path /.well-known/*
+	}
+	respond @dotfiles 404
+
+	# Never serve source, config or developer files, whatever the extension rule.
+	@private_extensions path_regexp private_ext (?i)\.(yml|yaml|twig|sql|inc|install|module|profile|theme|engine|sh|bak|orig|save|swp|swo|md|lock|dist)$
+	respond @private_extensions 404
+
+	@private_paths {
+		path /core/*.txt /core/install.php /core/rebuild.php /core/authorize.php /update.php /web.config
+		path /composer.json /composer.lock /vendor/* /config/* /private/* /scripts/* /deploy/* /tests/*
+		path /sites/*/settings*.php /sites/*/services*.yml /sites/*/default.*
+	}
+	respond @private_paths 404
+
+	# Only index.php may run as a script.
+	@other_php {
+		path_regexp other_php \.php$
+		not path /index.php
+	}
+	respond @other_php 404
+
+	log {
+		output stdout
+		format console
+	}
+
+	php_server
+}
