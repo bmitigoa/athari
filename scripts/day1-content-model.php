@@ -8,6 +8,10 @@
  * Run once with: ddev drush php:script scripts/day1-content-model.php
  * The resulting configuration is exported to config/sync; that export, not
  * this script, is the source of truth.
+ *
+ * SUPERSEDED: Athari now targets Kenya. Use scripts/kenya-01-regions.php and
+ * scripts/kenya-03-seed.php instead. This script is kept as a record of the
+ * original Uganda build and would create Ugandan data if run.
  */
 
 use Drupal\Core\Entity\Entity\EntityFormDisplay;

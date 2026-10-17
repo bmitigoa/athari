@@ -12,6 +12,10 @@
  * illustrative sample data, not real programme results.
  *
  * Run with: ddev drush php:script scripts/day2-04-seed-data.php
+ *
+ * SUPERSEDED: Athari now targets Kenya. Use scripts/kenya-01-regions.php and
+ * scripts/kenya-03-seed.php instead. This script is kept as a record of the
+ * original Uganda build and would create Ugandan data if run.
  */
 
 use Drupal\node\Entity\Node;

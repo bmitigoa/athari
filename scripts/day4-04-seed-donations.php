@@ -8,6 +8,10 @@
  * receipts start with SEED. Safe to re-run (receipts are unique).
  *
  * Run with: ddev drush php:script scripts/day4-04-seed-donations.php
+ *
+ * SUPERSEDED: Athari now targets Kenya. Use scripts/kenya-01-regions.php and
+ * scripts/kenya-03-seed.php instead. This script is kept as a record of the
+ * original Uganda build and would create Ugandan data if run.
  */
 
 use Drupal\athari_donate\DonationInterface;
