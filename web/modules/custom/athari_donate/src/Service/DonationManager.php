@@ -196,10 +196,25 @@ class DonationManager {
       }
     }
 
-    if ($donation->getStatus() !== DonationInterface::STATUS_PENDING) {
+    $status = $donation->getStatus();
+    if ($status !== DonationInterface::STATUS_PENDING) {
+      // Money received is the truth. A success callback upgrades a donation
+      // that a status query or the timeout wrongly marked failed or cancelled.
+      if ($code === 0 && in_array($status, [DonationInterface::STATUS_FAILED, DonationInterface::STATUS_CANCELLED], TRUE)) {
+        $donation->setStatus(DonationInterface::STATUS_SUCCESS);
+        $this->applyPaymentDetails($donation, $meta);
+        $donation->set('result_code', 0);
+        $donation->set('result_desc', substr((string) ($callback['ResultDesc'] ?? ''), 0, 255));
+        $donation->save();
+        $this->logger->warning('Donation @id was @old but a success callback arrived; marked success.', [
+          '@id' => $donation->id(),
+          '@old' => $status,
+        ]);
+        return $donation;
+      }
       // A status query may already have marked the donation a success without
       // knowing the receipt number. The first successful callback adds it.
-      if ($donation->getStatus() === DonationInterface::STATUS_SUCCESS && $donation->getReceipt() === '' && $code === 0 && !empty($meta['MpesaReceiptNumber'])) {
+      if ($status === DonationInterface::STATUS_SUCCESS && $donation->getReceipt() === '' && $code === 0 && !empty($meta['MpesaReceiptNumber'])) {
         $this->applyPaymentDetails($donation, $meta);
         $donation->save();
         $this->logger->info('Receipt added to donation @id from the callback.', ['@id' => $donation->id()]);

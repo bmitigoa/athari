@@ -8,5 +8,5 @@ passkey: ''
 api_base_url: ''
 callback_base_url: ''
 transaction_type: CustomerPayBillOnline
-min_amount: 10
+min_amount: 1
 max_amount: 150000

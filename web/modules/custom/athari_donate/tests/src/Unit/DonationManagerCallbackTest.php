@@ -180,6 +180,22 @@ class DonationManagerCallbackTest extends UnitTestCase {
   }
 
   /**
+   * Tests that a success callback upgrades a donation wrongly marked failed.
+   */
+  public function testSuccessCallbackUpgradesFailedDonation(): void {
+    // For example the 30 minute timeout or a status query gave up early.
+    $this->values['status'] = DonationInterface::STATUS_FAILED;
+    $this->manager->processCallback($this->payload(0, 'OK', $this->successItems()));
+    $this->assertSame(DonationInterface::STATUS_SUCCESS, $this->values['status']);
+    $this->assertSame('NLJ7RT61SV', $this->values['mpesa_receipt']);
+    $this->assertSame(1, $this->saves);
+
+    // And a later failure still cannot undo it.
+    $this->manager->processCallback($this->payload(1, 'late'));
+    $this->assertSame(DonationInterface::STATUS_SUCCESS, $this->values['status']);
+  }
+
+  /**
    * Tests that a callback arriving after a status query adds the receipt.
    */
   public function testCallbackAddsReceiptAfterQueryConfirmedSuccess(): void {

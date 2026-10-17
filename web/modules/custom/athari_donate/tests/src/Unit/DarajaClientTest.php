@@ -190,6 +190,12 @@ class DarajaClientTest extends UnitTestCase {
       'insufficient funds' => [['ResultCode' => '1', 'ResultDesc' => 'The balance is insufficient'], 'failed', 1],
       'wrong pin' => [['ResultCode' => '2001', 'ResultDesc' => 'The initiator information is invalid.'], 'failed', 2001],
       'timeout' => [['ResultCode' => '1037', 'ResultDesc' => 'DS timeout user cannot be reached'], 'failed', 1037],
+      // Seen against the real sandbox: a 200 answer that is not a result yet.
+      'still under processing' => [
+        ['ResultCode' => '4999', 'ResultDesc' => 'The transaction is still under processing'],
+        'processing',
+        4999,
+      ],
     ];
   }
 

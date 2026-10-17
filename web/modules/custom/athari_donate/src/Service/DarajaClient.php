@@ -36,6 +36,11 @@ class DarajaClient implements PaymentProviderInterface {
   public const PRODUCTION_URL = 'https://api.safaricom.co.ke';
 
   /**
+   * Result code of the STK Query meaning "still being processed".
+   */
+  public const RESULT_STILL_PROCESSING = 4999;
+
+  /**
    * The credential names handled by getCredential().
    */
   public const CREDENTIALS = ['consumer_key', 'consumer_secret', 'passkey'];
@@ -233,6 +238,8 @@ class DarajaClient implements PaymentProviderInterface {
     $code = (int) ($data['ResultCode'] ?? -1);
     $state = match (TRUE) {
       !isset($data['ResultCode']) => 'processing',
+      // 4999 is Daraja's "still under processing": not a result yet.
+      $code === self::RESULT_STILL_PROCESSING => 'processing',
       $code === 0 => 'success',
       $code === 1032 => 'cancelled',
       default => 'failed',
