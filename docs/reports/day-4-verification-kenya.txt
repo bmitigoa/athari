@@ -1,0 +1,44 @@
+﻿PAGE|anonymous|GET /donate|200|200|PASS
+PAGE|fieldofficer|GET /donate|200|200|PASS
+PAGE|reviewer|GET /donate|200|200|PASS
+PAGE|ngoadmin|GET /donate|200|200|PASS
+PAGE|anonymous|GET /donate/87|200|200|PASS
+PAGE|fieldofficer|GET /donate/87|200|200|PASS
+PAGE|reviewer|GET /donate/87|200|200|PASS
+PAGE|ngoadmin|GET /donate/87|200|200|PASS
+PAGE|anonymous|GET /donate/status/<uuid>|200|200|PASS
+PAGE|fieldofficer|GET /donate/status/<uuid>|200|200|PASS
+PAGE|reviewer|GET /donate/status/<uuid>|200|200|PASS
+PAGE|ngoadmin|GET /donate/status/<uuid>|200|200|PASS
+PAGE|anonymous|GET /donate/status/<uuid>/json|200|200|PASS
+PAGE|fieldofficer|GET /donate/status/<uuid>/json|200|200|PASS
+PAGE|reviewer|GET /donate/status/<uuid>/json|200|200|PASS
+PAGE|ngoadmin|GET /donate/status/<uuid>/json|200|200|PASS
+PAGE|anonymous|GET /donate/status/00000000-0000-0000-0000-000000000000|404|404|PASS
+PAGE|fieldofficer|GET /donate/status/00000000-0000-0000-0000-000000000000|404|404|PASS
+PAGE|reviewer|GET /donate/status/00000000-0000-0000-0000-000000000000|404|404|PASS
+PAGE|ngoadmin|GET /donate/status/00000000-0000-0000-0000-000000000000|404|404|PASS
+PAGE|anonymous|GET /admin/content/donations|403|403|PASS
+PAGE|fieldofficer|GET /admin/content/donations|403|403|PASS
+PAGE|reviewer|GET /admin/content/donations|403|403|PASS
+PAGE|ngoadmin|GET /admin/content/donations|200|200|PASS
+PAGE|anonymous|GET /admin/config/athari/donate|403|403|PASS
+PAGE|fieldofficer|GET /admin/config/athari/donate|403|403|PASS
+PAGE|reviewer|GET /admin/config/athari/donate|403|403|PASS
+PAGE|ngoadmin|GET /admin/config/athari/donate|200|200|PASS
+PAGE|anonymous|GET /athari/mpesa/callback/<token>|405|405|PASS
+PAGE|fieldofficer|GET /athari/mpesa/callback/<token>|405|405|PASS
+PAGE|reviewer|GET /athari/mpesa/callback/<token>|405|405|PASS
+PAGE|ngoadmin|GET /athari/mpesa/callback/<token>|405|405|PASS
+PAGE|anonymous|GET /projects/kibera-maternal-child-health-outreach|200|200|PASS
+PAGE|fieldofficer|GET /projects/kibera-maternal-child-health-outreach|200|200|PASS
+PAGE|reviewer|GET /projects/kibera-maternal-child-health-outreach|200|200|PASS
+PAGE|ngoadmin|GET /projects/kibera-maternal-child-health-outreach|200|200|PASS
+PAGE|anonymous|GET /|200|200|PASS
+PAGE|fieldofficer|GET /|200|200|PASS
+PAGE|reviewer|GET /|200|200|PASS
+PAGE|ngoadmin|GET /|200|200|PASS
+PAGE|anonymous|form has phone field|yes|yes|PASS
+PAGE|anonymous|form has amount field|yes|yes|PASS
+PAGE|anonymous|form has project select|yes|yes|PASS
+SUMMARY|ALL 43 DONATION PAGE CHECKS PASSED

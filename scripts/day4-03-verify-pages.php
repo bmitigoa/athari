@@ -25,7 +25,7 @@ $accounts = [
 
 // A throw-away donation so the status page can be requested.
 $storage = \Drupal::entityTypeManager()->getStorage('node');
-$project = reset($storage->loadByProperties(['type' => 'project', 'title' => 'Kawempe Maternal & Child Health Outreach']));
+$project = reset($storage->loadByProperties(['type' => 'project', 'title' => 'Kibera Maternal & Child Health Outreach']));
 $donation = $manager->createPending($project, 5, '254708374149');
 $uuid = $donation->uuid();
 $token = $manager->getCallbackSecret();
@@ -42,7 +42,7 @@ $pages = [
   '/admin/content/donations' => ['GET', [403, 403, 403, 200]],
   '/admin/config/athari/donate' => ['GET', [403, 403, 403, 200]],
   '/athari/mpesa/callback/' . $token => ['GET', [405, 405, 405, 405]],
-  '/projects/' . 'kawempe-maternal-child-health-outreach' => ['GET', [200, 200, 200, 200]],
+  '/projects/' . 'kibera-maternal-child-health-outreach' => ['GET', [200, 200, 200, 200]],
   '/' => ['GET', [200, 200, 200, 200]],
 ];
 

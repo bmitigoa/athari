@@ -1,0 +1,46 @@
+﻿CHECK|Region vocabulary: top-level provinces|8|8|PASS
+CHECK|Region vocabulary: counties|47|47|PASS
+CHECK|Province names|["Central","Coast","Eastern","Nairobi","North Eastern","Nyanza","Rift Valley","Western"]|["Central","Coast","Eastern","Nairobi","North Eastern","Nyanza","Rift Valley","Western"]|PASS
+CHECK|Region terms have a URL alias (/region/nairobi)|yes|yes|PASS
+CHECK|Nodes of type partner|5|5|PASS
+CHECK|Nodes of type location|15|15|PASS
+CHECK|Nodes of type project|10|10|PASS
+CHECK|Nodes of type report|30|30|PASS
+CHECK|Report moderation states|{"archived":3,"draft":6,"in_review":5,"published":16}|{"archived":3,"draft":6,"in_review":5,"published":16}|PASS
+CHECK|Donations|19|19|PASS
+CHECK|Locations outside Kenya|0|0|PASS
+CHECK|Locations whose county is a real county term|15|15|PASS
+CHECK|Projects tagged with a county|0|0|PASS
+CHECK|Total project budgets (KES)|166550000|166550000|PASS
+CHECK|Budget field label|Budget (KES)|Budget (KES)|PASS
+CHECK|Funds spent field label|Funds spent (KES)|Funds spent (KES)|PASS
+CHECK|Budget prefix|KES |KES |PASS
+CHECK|Funds prefix|KES |KES |PASS
+CHECK|Partner address country|["KE"]|["KE"]|PASS
+CHECK|Config objects mentioning Uganda, UGX, USD or MoMo|[]|[]|PASS
+CHECK|Map centre (Kenya)|{"lat":0.0236,"lon":37.9062}|{"lat":0.0236,"lon":37.9062}|PASS
+CHECK|Map zoom|6|6|PASS
+CHECK|Content (titles, text, terms, aliases) mentioning Uganda or UGX|[]|[]|PASS
+CHECK|GET / status|200|200|PASS
+CHECK|GET / has no USD or Uganda wording|0|0|PASS
+CHECK|GET /projects status|200|200|PASS
+CHECK|GET /projects has no USD or Uganda wording|0|0|PASS
+CHECK|GET /projects/table status|200|200|PASS
+CHECK|GET /projects/table has no USD or Uganda wording|0|0|PASS
+CHECK|GET /impact status|200|200|PASS
+CHECK|GET /impact has no USD or Uganda wording|0|0|PASS
+CHECK|GET /map status|200|200|PASS
+CHECK|GET /map has no USD or Uganda wording|0|0|PASS
+CHECK|GET /projects/kibera-maternal-child-health-outreach status|200|200|PASS
+CHECK|GET /projects/kibera-maternal-child-health-outreach has no USD or Uganda wording|0|0|PASS
+CHECK|GET /about status|200|200|PASS
+CHECK|GET /about has no USD or Uganda wording|0|0|PASS
+CHECK|GET /donate status|200|200|PASS
+CHECK|GET /donate has no USD or Uganda wording|0|0|PASS
+CHECK|Homepage shows published beneficiaries|yes|yes|PASS
+CHECK|Homepage shows funds spent in compact KES|yes|yes|PASS
+CHECK|Projects table shows KES budgets|yes|yes|PASS
+CHECK|Project page shows the budget in KES|yes|yes|PASS
+CHECK|Project page shows County label|yes|yes|PASS
+CHECK|Map page has 15 distinct markers|15|15|PASS
+SUMMARY|ALL 45 KENYA CHECKS PASSED
