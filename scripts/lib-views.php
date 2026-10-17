@@ -229,7 +229,9 @@ function athari_vmap_fields(): array {
 }
 
 /**
- * Rewrite for a KES total on a stat card: 61500000 shows as "KES 61.5M".
+ * Rewrite for a KES total on a stat card, kept short so it fits the card.
+ *
+ * 61500000 shows as "KES 61.5M", 138500 as "KES 138.5K" and 2500 as "KES 2,500".
  *
  * @param string $field
  *   The Views field id whose plain number is formatted.
@@ -237,6 +239,7 @@ function athari_vmap_fields(): array {
 function athari_kes_rewrite(string $field): array {
   $twig = "{% set v = " . $field . "|striptags|replace({',': ''})|trim + 0 %}"
     . "{% if v >= 1000000 %}KES {{ (v / 1000000)|number_format(1, '.', ',') }}M"
+    . "{% elseif v >= 100000 %}KES {{ (v / 1000)|number_format(1, '.', ',') }}K"
     . "{% else %}KES {{ v|number_format(0, '.', ',') }}{% endif %}";
   return athari_rewrite($twig);
 }

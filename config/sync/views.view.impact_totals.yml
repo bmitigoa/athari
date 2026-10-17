@@ -87,7 +87,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set v = field_funds_spent|striptags|replace({',': ''})|trim + 0 %}{% if v >= 1000000 %}KES {{ (v / 1000000)|number_format(1, '.', ',') }}M{% else %}KES {{ v|number_format(0, '.', ',') }}{% endif %}"
+            text: "{% set v = field_funds_spent|striptags|replace({',': ''})|trim + 0 %}{% if v >= 1000000 %}KES {{ (v / 1000000)|number_format(1, '.', ',') }}M{% elseif v >= 100000 %}KES {{ (v / 1000)|number_format(1, '.', ',') }}K{% else %}KES {{ v|number_format(0, '.', ',') }}{% endif %}"
             make_link: false
             absolute: false
             word_boundary: false

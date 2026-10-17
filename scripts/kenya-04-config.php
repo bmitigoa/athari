@@ -79,9 +79,9 @@ function athari_kenya_walk(array $node): array {
         $value['zoom'] = 6;
         $value['minZoom'] = 5;
       }
-      // Compact KES totals on the "Funds spent" stat cards.
-      if ($key === 'field_funds_spent' && isset($value['alter']['alter_text']) && !empty($value['alter']['alter_text']) && str_contains((string) ($value['element_wrapper_class'] ?? ''), 'athari-stat')) {
-        $value['alter']['text'] = athari_kes_rewrite('field_funds_spent')['text'];
+      // Compact KES totals on stat cards ("Funds spent" and "Donations received").
+      if (in_array($key, ['field_funds_spent', 'amount'], TRUE) && !empty($value['alter']['alter_text']) && str_contains((string) ($value['element_wrapper_class'] ?? ''), 'athari-stat')) {
+        $value['alter']['text'] = athari_kes_rewrite($key)['text'];
       }
       $node[$key] = athari_kenya_walk($value);
     }

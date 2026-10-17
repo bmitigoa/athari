@@ -66,7 +66,7 @@ $success_filter = [
   ],
 ];
 $plain_int = ['type' => 'number_integer', 'settings' => ['thousand_separator' => '', 'prefix_suffix' => FALSE]];
-$amount_card = athari_dv('amount', 'amount', athari_stat('Donations received', 'donations') + ['type' => 'number_decimal', 'settings' => ['thousand_separator' => '', 'decimal_separator' => '.', 'scale' => 0, 'prefix_suffix' => FALSE], 'group_type' => 'sum', 'alter' => athari_rewrite('KES {{ amount|number_format(0, ".", ",") }}')]);
+$amount_card = athari_dv('amount', 'amount', athari_stat('Donations received', 'donations') + ['type' => 'number_decimal', 'settings' => ['thousand_separator' => '', 'decimal_separator' => '.', 'scale' => 0, 'prefix_suffix' => FALSE], 'group_type' => 'sum', 'alter' => athari_kes_rewrite('amount')]);
 $count_card = athari_dv('id', 'id', athari_stat('Donations', 'donations') + $plain_int + ['group_type' => 'count']);
 $project_arg = [
   'project' => [
