@@ -154,5 +154,5 @@ Probe it with `-Insecure -Live -HttpBase http://localhost:8080`, for example:
 | Anonymous API checks against that stack | 37 of 37 passed |
 | HTTP security checks in live mode (HSTS, headers, blocked files, HTTP to HTTPS) | 48 of 48 passed |
 | Devel and test tools absent from the image, dev config split off, errors hidden | Confirmed |
-| `linux/arm64` | ARM64 images exist for every base image (FrankenPHP, MariaDB, Composer, extension installer). The emulated `linux/arm64` build (QEMU on a laptop) did not finish in the time available, so it is unconfirmed; the first install on a real ARM server is the real check |
+| `linux/arm64` | The production image builds under `docker buildx --platform linux/arm64` (QEMU emulation) and runs: `aarch64`, PHP 8.3, FrankenPHP 1.13 with Caddy 2.11, and the gd, intl, pdo_mysql, apcu, zip and OPcache extensions present. The full installer was run on x86-64 only, so the first install on a real ARM server is still the final check |
 | Public hosting and a real HTTPS certificate | Not done: the project is not hosted live |
