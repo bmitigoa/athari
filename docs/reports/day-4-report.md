@@ -13,7 +13,7 @@ Day 4 added the ability to donate to a project by mobile money.
 - Every attempt is stored as a **Donation** record (pending, success, failed or cancelled). The result arrives through a **callback** that Safaricom posts to a secret URL, and, if the callback cannot reach the site, through the **STK Push Query** that the status page uses as a fallback.
 - Staff get a **donations report** at `/admin/content/donations`. Visitors see **donations received** on every project page and on the homepage, and the Donate buttons are now real.
 - Credentials are read **only** from the git-ignored `settings.local.php`. I verified that none of them is in any committed file.
-- The module was tested against the **real Daraja sandbox**: a token was issued, STK Push requests were accepted, a real callback arrived through a public tunnel, and the STK Query answered. That exercise found and fixed one real bug (section 9).
+- The module was tested against the **real Daraja sandbox**: a token was issued, STK Push requests were accepted, a real callback arrived through a public tunnel, and the STK Query answered. That exercise found and fixed one real bug (section 10).
 - **45 unit tests and 4 kernel tests pass**, the Drupal coding-standards check is clean, and 43 page and permission checks pass.
 
 One honest limit: the sandbox has no phone that can approve a prompt, so it answers *cancelled* or *timed out*. The **success** path was verified by sending a callback in Safaricom's documented format through the same public URL.
@@ -29,7 +29,7 @@ One honest limit: the sandbox has no phone that can approve a prompt, so it answ
 | File | What it is | Why |
 |---|---|---|
 | `athari_donate.info.yml` | Module declaration. Depends on node, options, user and views. | Lets Drupal install it. |
-| `athari_donate.routing.yml` | Eight routes (see 2.2). | Maps URLs to forms and controllers. |
+| `athari_donate.routing.yml` | Six routes (see 2.2). | Maps URLs to forms and controllers. |
 | `athari_donate.services.yml` | Services: `athari_donate.daraja_client`, `athari_donate.donation_manager` and the `athari_donate` logger channel. | Dependency injection: classes get what they need handed to them. |
 | `athari_donate.permissions.yml` | Four permissions (see 2.3). | Access control. |
 | `athari_donate.links.menu.yml` | "Athari" section and "Donations (M-Pesa)" under Configuration. | Admin navigation. |
@@ -251,7 +251,7 @@ The callback `POST` was also checked over real HTTP: a good token answers `200` 
 | STK Push (KES 1 to 2, test number) | Accepted by Safaricom every time (about six attempts) |
 | Public tunnel (path allow-list proxy) | Only the callback path was reachable: `/`, `/user/login`, `/admin` and `/donate` all answered 404 through it |
 | **Real callback from Safaricom** | Arrived about 19 seconds later: `ResultCode 1032 "Request Cancelled by user."`; the donation became *cancelled* and the status page showed it |
-| Real STK Query answers | `1037 "No response from user"`, and `4999 "The transaction is still under processing"` (this one exposed a bug, section 9) |
+| Real STK Query answers | `1037 "No response from user"`, and `4999 "The transaction is still under processing"` (this one exposed a bug, section 10) |
 | Success path | A success callback in Safaricom's documented format sent **through the same public URL**: donation became *success* with receipt `TESTATHARI1`; a duplicate delivery changed nothing |
 | After the test | Tunnel and proxy stopped, the temporary line removed from `settings.local.php`, and the callback token rotated |
 
@@ -338,6 +338,7 @@ The callback `POST` was also checked over real HTTP: a good token answers `200` 
 ## 11. Git log (Day 4)
 
 ```
+9efc0c7 fix: grouped status filter, read-only overrides in settings form, safe re-run of donation views
 02bc745 docs: add payment sequence diagram, settings example, callback simulator and tunnel proxy
 e79d7e9 feat: donation status page styling, sample donations, donation page checks and screenshots
 a278dd4 fix: treat STK Query 4999 as still processing, let a success callback upgrade a failed donation, minimum donation KES 1
@@ -346,7 +347,7 @@ c6ed7c2 config: add donation views, permissions, project donation blocks and liv
 94ff7cd chore: add drupal/core-dev for PHPUnit and coding standards
 ```
 
-A final `docs: day 4 report` commit adds this report and its PDF.
+The final `docs: day 4 report` commit adds the finished report and its PDF.
 
 ---
 
