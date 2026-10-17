@@ -1,34 +1,50 @@
-# Athari: Demo Video Script (2 to 3 minutes)
+# Athari: Demo Video Script (about 3 minutes)
+
+**Focus:** first show how Athari is built and run (**Docker** and **Drupal**), then the portal itself.
 
 **Before you record**
 
-- Start the site: `ddev start`, then open `https://athari.ddev.site`.
-- Make sure the demo data is loaded (see the README quick-start). If you have already run the workflow step once, re-seed or accept that the totals are higher.
-- Use a clean browser window at full-screen width, zoom 100%, and close other tabs.
-- Have four logins ready (local only): `fieldofficer / fieldofficer123`, `reviewer / reviewer123`, `ngoadmin / ngoadmin123`, `admin / admin`.
-- Do the **workflow step (4)** last or re-seed afterwards, because publishing a report changes the totals.
+- Docker Desktop running. In a terminal inside the project: `ddev start`. Open `https://athari.ddev.site` in a browser.
+- Demo data loaded (README quick-start). Four logins (local only): `admin / admin`, `fieldofficer / fieldofficer123`, `reviewer / reviewer123`, `ngoadmin / ngoadmin123`.
+- Open these in the editor, ready to show: `deploy/Dockerfile`, `deploy/docker-compose.yml`, `deploy/Caddyfile`, `web/modules/custom/athari_donate/src/Service/DarajaClient.php`, `web/modules/custom/athari_api/src/Hook/ApiHooks.php`.
+- Terminal font large, browser at 100% zoom, other tabs closed.
+- Do the **workflow step (scene 7)** last or re-seed afterwards: publishing a report changes the totals.
 
 ---
 
-## Scene by scene
+## Part A: Docker and Drupal under the hood (about 1 minute 45 seconds)
+
+| Time | Screen | What to show | What to say |
+|---|---|---|---|
+| **0:00 to 0:20** | Terminal | Run `docker ps` (shows the DDEV web, database and router containers). Then `ddev describe` | "Athari is a Drupal 11 portal for Kenyan NGOs. It runs entirely in Docker. Locally DDEV starts a web container, a MariaDB container and a router, so anyone can run it with five commands." |
+| **0:20 to 0:50** | Editor | Open `deploy/docker-compose.yml`, then `deploy/Dockerfile`, then `deploy/Caddyfile` (scroll the block rules) | "For servers there is a production stack: two containers, MariaDB and the app. The app is Drupal on FrankenPHP, which is the Caddy web server with PHP built in. Caddy gets the HTTPS certificate by itself, hides private files, and the image is built without development tools. One script installs it on an Oracle Cloud or any Ubuntu server; I tested it on Docker, including an ARM64 build." |
+| **0:50 to 1:15** | Terminal | Run `ddev drush status`, then `ddev drush config:status`, then `ls config/sync \| head -20` | "The whole site is configuration in Git: content types, fields, views, roles and the workflow. A new machine rebuilds the same site with one install command. That is Drupal configuration management." |
+| **1:15 to 1:45** | Browser (logged in as `admin`) | *Structure, Content types* (Project, Location, Partner, Report). *Configuration, Workflow* (the four states). *Structure, Views* (projects, impact, map, review queue, donations) | "The content model has projects, locations, partners and reports, linked by entity references. Reports go through Draft, In Review, Published, Archived with Content Moderation. The dashboards and lists are Views, built from configuration rather than code." |
+
+## Part B: Custom code and API (about 40 seconds)
+
+| Time | Screen | What to show | What to say |
+|---|---|---|---|
+| **1:45 to 2:10** | Editor | `DarajaClient.php` (token and STK Push methods), then the `athari_donate` folder tree | "The custom code is small and focused. `athari_donate` is a Drupal module with a service that talks to Safaricom Daraja for M-Pesa, a Donation entity, a form, and a secret callback route. Credentials never enter Git." |
+| **2:10 to 2:25** | Browser | `/api/projects?include=sector,county`, `/api/impact`, then `/api/donations` (404) | "A read-only JSON API serves projects and approved reports. Donations, drafts and user data are never exposed, and tests prove it." |
+
+## Part C: The portal in use (about 1 minute)
 
 | Time | Screen | What to click | What to say |
 |---|---|---|---|
-| **0:00 to 0:15** | Home page | Scroll slowly past the hero, the four impact stat cards and the map | "Athari is a Drupal portal for a Kenyan NGO. It manages projects, collects field reports, shows impact on charts and a map, and takes donations by M-Pesa." |
-| **0:15 to 0:40** | Projects | Click *Projects*. Filter by sector **WASH**, then by county **Turkana**. Open one project | "Every project has a sector, a county, a budget in shillings, its sites, its partners and its published reports. Visitors can filter by sector, county and status." |
-| **0:40 to 1:05** | Impact, then Map | Click *Impact*: point at the totals and the charts by sector and region. Click *Map*: click one pin | "The impact page adds up people reached and shillings spent. Only reports that a reviewer has approved are counted. The map shows where the work happens." |
-| **1:05 to 1:50** | Report workflow | Log in as `fieldofficer`. *Content, Add content, Report*: choose a project, enter beneficiaries and funds spent, add a short narrative, set the state to **In Review**, save. Log out. Log in as `reviewer`, open the **Review queue**, open the report, set **Published**. Open *Impact* again and show the totals have increased | "Field officers write reports and submit them for review. A reviewer checks and publishes. Only then does the report appear on the site and change the totals." |
-| **1:50 to 2:20** | Donations | Open a project and click **Donate**. Show the form and type an invalid phone such as `0712345678` to show the validation message. Back on the project page, point at "donations received" | "Donors choose a project, an amount and their phone number in the 2547 format. Athari sends an M-Pesa STK Push through Safaricom Daraja and records the result. It runs against the Daraja sandbox; production needs merchant onboarding with Safaricom." |
-| **2:20 to 2:45** | API, then close | Open `/api/projects?include=sector,county`, then `/api/impact`, then `/api/donations` (shows 404) | "There is also a read-only public API for projects, locations, partners and approved reports. Donations, drafts and user data are never exposed. The whole site is rebuilt from Git, and it is ready to deploy on Oracle Cloud or any VPS. Thank you." |
+| **2:25 to 2:40** | Home, Projects, Impact, Map | Home hero and stat cards. *Projects*, filter WASH. *Impact* charts. *Map*, click a pin | "For visitors: projects filtered by sector and county, an impact dashboard with totals and charts, and a map. Only approved reports are counted." |
+| **2:40 to 3:15** | Report workflow | Log in as `fieldofficer`. *Add content, Report*: pick a project, enter beneficiaries and funds, save as **In Review**. Log in as `reviewer`, open the **Review queue**, set **Published**. Open *Impact*: totals have risen | "Field officers submit reports and reviewers approve them. Only then do they change the public figures." |
+| **3:15 to 3:35** | Donate | Open a project, click **Donate**, type phone `0712345678` to show the validation message | "Donations go through M-Pesa STK Push. It runs against the Daraja sandbox; production needs merchant onboarding with Safaricom." |
+| **3:35 to 3:45** | Home | Back to the home page | "Athari: Drupal, Docker, M-Pesa and a public API in one portfolio project. The code and documentation are on GitHub. Thank you." |
 
-Total: about 2 minutes 45 seconds. To shorten to two minutes, skip the county filter (scene 2) and the invalid phone demo (scene 5).
+Total: about 3 minutes 45 seconds. For a three-minute cut: drop the Caddyfile scroll, the `config:status` command, the invalid-phone demo, and the Map click.
 
 ---
 
 ## Tips
 
-- Speak slowly and pause one second after each page loads.
-- Do not show the admin password prompt or any password field in focus; use the demo accounts above.
+- Speak slowly and pause one second after each screen changes. Zoom the editor to 150% so code is readable.
+- Do not show a password field in focus; use the demo accounts only.
 - Do not submit a real donation unless your Daraja sandbox keys are configured.
-- If a page is slow the first time, reload once before recording (cache warm-up).
+- Reload each page once before recording (cache warm-up).
 - Put the finished video link in the README, replacing `DEMO_VIDEO_LINK_PLACEHOLDER`.
