@@ -11,8 +11,19 @@
 #>
 param(
   [string]$Base = 'https://athari.ddev.site',
-  [switch]$Live
+  [switch]$Live,
+  [switch]$Insecure,
+  [string]$HttpBase = ''
 )
+
+if ($Insecure) {
+  # Local trial stacks use a self-signed certificate. Never use this against the live site.
+  Add-Type @"
+using System.Net; using System.Security.Cryptography.X509Certificates;
+public class TrustAll : ICertificatePolicy { public bool CheckValidationResult(ServicePoint s, X509Certificate c, WebRequest r, int p) { return true; } }
+"@
+  [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAll
+}
 
 $script:fails = 0
 $script:checks = 0
@@ -72,7 +83,7 @@ Check 'No PHP version header (X-Powered-By)' 'absent' $(if ($front.Headers['X-Po
 if ($Live) {
   Check 'HSTS header' TRUE ([bool]$front.Headers['Strict-Transport-Security'])
   Check 'X-Generator (Drupal version) header removed' 'absent' $(if ($front.Headers['X-Generator']) { 'present' } else { 'absent' })
-  $http = $Base -replace '^https:', 'http:'
+  $http = if ($HttpBase) { $HttpBase } else { $Base -replace '^https:', 'http:' }
   try { $r = Invoke-WebRequest "$http/" -UseBasicParsing -MaximumRedirection 0 -ErrorAction Stop; $st = [int]$r.StatusCode } catch { $st = [int]$_.Exception.Response.StatusCode }
   Check 'HTTP redirects to HTTPS' 'redirect' $(if ($st -in 301, 308) { 'redirect' } else { "status $st" })
 }

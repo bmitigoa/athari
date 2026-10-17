@@ -13,8 +13,18 @@
 #>
 param(
   [string]$Base = 'https://athari.ddev.site',
-  [string]$UuidFile = ''
+  [string]$UuidFile = '',
+  [switch]$Insecure
 )
+
+if ($Insecure) {
+  # Local trial stacks use a self-signed certificate. Never use this against the live site.
+  Add-Type @"
+using System.Net; using System.Security.Cryptography.X509Certificates;
+public class TrustAll : ICertificatePolicy { public bool CheckValidationResult(ServicePoint s, X509Certificate c, WebRequest r, int p) { return true; } }
+"@
+  [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAll
+}
 
 $ErrorActionPreference = 'Stop'
 $script:fails = 0
