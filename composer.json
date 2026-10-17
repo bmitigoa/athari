@@ -109,6 +109,7 @@
         }
     },
     "require-dev": {
+        "drupal/core-dev": "^11.4",
         "drupal/devel": "^5.5"
     }
 }
