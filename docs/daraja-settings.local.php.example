@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Example of web/sites/default/settings.local.php for Athari Donate.
+ *
+ * Copy these lines into web/sites/default/settings.local.php (which is
+ * git-ignored) and fill in the values from your Daraja developer portal app.
+ * NEVER commit real values.
+ *
+ * Optionally, read them from environment variables instead:
+ *   $config['athari_donate.settings']['consumer_key'] = getenv('DARAJA_CONSUMER_KEY') ?: '';
+ */
+
+$config['athari_donate.settings']['environment'] = 'sandbox';
+$config['athari_donate.settings']['shortcode'] = '174379';
+$config['athari_donate.settings']['consumer_key'] = '';
+$config['athari_donate.settings']['consumer_secret'] = '';
+$config['athari_donate.settings']['passkey'] = '';
+
+// Only when testing from a local machine: the public https address of a tunnel
+// that forwards to scripts/dev/callback_proxy.py. Remove it afterwards.
+// $config['athari_donate.settings']['callback_base_url'] = 'https://example.trycloudflare.com';

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" width="1000" height="900" font-family="Segoe UI, Arial, sans-serif" font-size="14">
+<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#25302a"/></marker><marker id="b" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#c0682f"/></marker></defs>
+<rect width="1000" height="900" fill="#fbf8f1"/>
+<text x="500" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1f4a36">Athari donation flow (M-Pesa STK Push)</text>
+<rect x="25" y="56" width="170" height="42" rx="8" fill="#2f6b4f"/><text x="110" y="83" text-anchor="middle" fill="#fff" font-weight="700">Donor browser</text>
+<line x1="110" y1="98" x2="110" y2="870" stroke="#b9c9bf" stroke-width="2" stroke-dasharray="6,5"/>
+<rect x="275" y="56" width="170" height="42" rx="8" fill="#2f6b4f"/><text x="360" y="83" text-anchor="middle" fill="#fff" font-weight="700">Athari (Drupal)</text>
+<line x1="360" y1="98" x2="360" y2="870" stroke="#b9c9bf" stroke-width="2" stroke-dasharray="6,5"/>
+<rect x="535" y="56" width="170" height="42" rx="8" fill="#2f6b4f"/><text x="620" y="83" text-anchor="middle" fill="#fff" font-weight="700">Safaricom Daraja</text>
+<line x1="620" y1="98" x2="620" y2="870" stroke="#b9c9bf" stroke-width="2" stroke-dasharray="6,5"/>
+<rect x="795" y="56" width="170" height="42" rx="8" fill="#2f6b4f"/><text x="880" y="83" text-anchor="middle" fill="#fff" font-weight="700">Donor phone</text>
+<line x1="880" y1="98" x2="880" y2="870" stroke="#b9c9bf" stroke-width="2" stroke-dasharray="6,5"/>
+<line x1="110" y1="150" x2="360" y2="150" stroke="#25302a" stroke-width="2" marker-end="url(#a)"/>
+<text x="235.0" y="142" text-anchor="middle" fill="#25302a">1. POST /donate: project, amount, phone</text>
+<rect x="210" y="172" width="300" height="48" rx="6" fill="#f4e3d3" stroke="#c0682f"/>
+<text x="360" y="190" text-anchor="middle" fill="#25302a">Validate, normalise phone to 2547XXXXXXXX,</text>
+<text x="360" y="208" text-anchor="middle" fill="#25302a">save Donation (status pending)</text>
+<line x1="360" y1="248" x2="620" y2="248" stroke="#25302a" stroke-width="2" marker-end="url(#a)"/>
+<text x="490.0" y="240" text-anchor="middle" fill="#25302a">2. GET /oauth/v1/generate (token cached ~1 h)</text>
+<line x1="360" y1="284" x2="620" y2="284" stroke="#25302a" stroke-width="2" marker-end="url(#a)"/>
+<text x="490.0" y="276" text-anchor="middle" fill="#25302a">3. POST STK Push (amount, phone, callback URL)</text>
+<line x1="620" y1="320" x2="360" y2="320" stroke="#c0682f" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#b)"/>
+<text x="490.0" y="312" text-anchor="middle" fill="#c0682f">4. CheckoutRequestID, ResponseCode 0</text>
+<line x1="360" y1="356" x2="110" y2="356" stroke="#c0682f" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#b)"/>
+<text x="235.0" y="348" text-anchor="middle" fill="#c0682f">5. 303 redirect to /donate/status/{uuid}</text>
+<line x1="620" y1="392" x2="880" y2="392" stroke="#25302a" stroke-width="2" marker-end="url(#a)"/>
+<text x="750.0" y="384" text-anchor="middle" fill="#25302a">6. M-Pesa PIN prompt</text>
+<line x1="880" y1="428" x2="620" y2="428" stroke="#c0682f" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#b)"/>
+<text x="750.0" y="420" text-anchor="middle" fill="#c0682f">7. Donor enters PIN, or cancels</text>
+<rect x="20" y="448" width="960" height="26" fill="#e4efe8"/><text x="32" y="466" font-weight="700" fill="#1f4a36">A. Normal path: Safaricom calls back</text>
+<line x1="620" y1="498" x2="360" y2="498" stroke="#25302a" stroke-width="2" marker-end="url(#a)"/>
+<text x="490.0" y="490" text-anchor="middle" fill="#25302a">8. POST /athari/mpesa/callback/{token}: ResultCode, receipt</text>
+<rect x="210" y="520" width="300" height="48" rx="6" fill="#f4e3d3" stroke="#c0682f"/>
+<text x="360" y="538" text-anchor="middle" fill="#25302a">Check token, match CheckoutRequestID,</text>
+<text x="360" y="556" text-anchor="middle" fill="#25302a">update Donation once (idempotent), log</text>
+<line x1="360" y1="596" x2="620" y2="596" stroke="#c0682f" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#b)"/>
+<text x="490.0" y="588" text-anchor="middle" fill="#c0682f">9. 200 {"ResultCode":0,"ResultDesc":"Accepted"}</text>
+<rect x="20" y="616" width="960" height="26" fill="#e4efe8"/><text x="32" y="634" font-weight="700" fill="#1f4a36">B. Fallback: callback cannot reach the site</text>
+<line x1="360" y1="666" x2="620" y2="666" stroke="#25302a" stroke-width="2" marker-end="url(#a)"/>
+<text x="490.0" y="658" text-anchor="middle" fill="#25302a">10. POST STK Push Query (after 15 s, max every 8 s)</text>
+<line x1="620" y1="702" x2="360" y2="702" stroke="#c0682f" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#b)"/>
+<text x="490.0" y="694" text-anchor="middle" fill="#c0682f">11. ResultCode (0 success, 1032 cancelled, 4999 still waiting)</text>
+<rect x="20" y="722" width="960" height="26" fill="#e4efe8"/><text x="32" y="740" font-weight="700" fill="#1f4a36">C. The status page, meanwhile</text>
+<line x1="110" y1="772" x2="360" y2="772" stroke="#25302a" stroke-width="2" marker-end="url(#a)"/>
+<text x="235.0" y="764" text-anchor="middle" fill="#25302a">12. GET /donate/status/{uuid}/json every 3 s</text>
+<line x1="360" y1="808" x2="110" y2="808" stroke="#c0682f" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#b)"/>
+<text x="235.0" y="800" text-anchor="middle" fill="#c0682f">13. {status, receipt, message}; page shows the result</text>
+</svg>
