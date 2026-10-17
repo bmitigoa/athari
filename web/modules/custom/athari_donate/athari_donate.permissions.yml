@@ -1,0 +1,18 @@
+make donations:
+  title: 'Make a donation'
+  description: 'Open the donation form and start a mobile-money payment.'
+
+view athari donations:
+  title: 'View the donations report'
+  description: 'See donations and per-project totals. Phone numbers are masked.'
+  restrict access: true
+
+administer athari donate:
+  title: 'Administer Athari Donate settings'
+  description: 'Change Daraja credentials, environment and limits.'
+  restrict access: true
+
+administer athari donations:
+  title: 'Administer donation records'
+  description: 'Full access to Donation entities.'
+  restrict access: true

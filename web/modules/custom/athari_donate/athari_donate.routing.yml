@@ -1,0 +1,61 @@
+athari_donate.config_section:
+  path: '/admin/config/athari'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Athari'
+  requirements:
+    _permission: 'administer athari donate'
+
+athari_donate.settings:
+  path: '/admin/config/athari/donate'
+  defaults:
+    _form: '\Drupal\athari_donate\Form\SettingsForm'
+    _title: 'Athari Donate settings'
+  requirements:
+    _permission: 'administer athari donate'
+
+athari_donate.donate:
+  path: '/donate/{project}'
+  defaults:
+    _form: '\Drupal\athari_donate\Form\DonationForm'
+    _title: 'Donate'
+    project: null
+  requirements:
+    _permission: 'make donations'
+    project: '\d*'
+  options:
+    parameters:
+      project:
+        type: entity:node
+
+athari_donate.status:
+  path: '/donate/status/{uuid}'
+  defaults:
+    _controller: '\Drupal\athari_donate\Controller\StatusController::page'
+    _title: 'Your donation'
+  requirements:
+    _permission: 'make donations'
+    uuid: '[0-9a-f-]{36}'
+
+athari_donate.status_json:
+  path: '/donate/status/{uuid}/json'
+  defaults:
+    _controller: '\Drupal\athari_donate\Controller\StatusController::json'
+  requirements:
+    _permission: 'make donations'
+    uuid: '[0-9a-f-]{36}'
+  options:
+    no_cache: true
+
+athari_donate.callback:
+  path: '/athari/mpesa/callback/{token}'
+  defaults:
+    _controller: '\Drupal\athari_donate\Controller\CallbackController::receive'
+  methods: [POST]
+  requirements:
+    # Safaricom cannot log in. The unguessable token in the path, plus a lookup
+    # of the CheckoutRequestID, protect this endpoint instead.
+    _access: 'TRUE'
+    token: '[0-9a-f]{32}'
+  options:
+    no_cache: true

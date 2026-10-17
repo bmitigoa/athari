@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Hooks for Athari Donate.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function athari_donate_help(string $route_name, RouteMatchInterface $route_match): ?string {
+  if ($route_name === 'help.page.athari_donate') {
+    return '<p>' . t('Accepts M-Pesa donations through Safaricom Daraja STK Push. Credentials belong in settings.local.php; see the Athari Donate settings page.') . '</p>';
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * Donations that never received a result are marked failed after 30 minutes,
+ * so they do not stay pending forever.
+ */
+function athari_donate_cron(): void {
+  $expired = \Drupal::service('athari_donate.donation_manager')->expirePending();
+  if ($expired > 0) {
+    \Drupal::logger('athari_donate')->info('@count pending donation(s) timed out.', ['@count' => $expired]);
+  }
+}

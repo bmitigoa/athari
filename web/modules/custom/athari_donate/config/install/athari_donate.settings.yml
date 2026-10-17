@@ -1,0 +1,13 @@
+# Non-secret defaults. Credentials are NOT stored here: set them in
+# settings.local.php (see docs/daraja-settings.local.php.example) or on the
+# settings form, which keeps them in the database state, never in config.
+environment: sandbox
+shortcode: ''
+consumer_key: ''
+consumer_secret: ''
+passkey: ''
+api_base_url: ''
+callback_base_url: ''
+transaction_type: CustomerPayBillOnline
+min_amount: 10
+max_amount: 150000

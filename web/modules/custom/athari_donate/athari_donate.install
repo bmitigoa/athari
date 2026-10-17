@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall hooks for Athari Donate.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_install().
+ */
+function athari_donate_install(): void {
+  // Create the secret path segment of the callback URL. It lives in state, not
+  // in config, so it is never exported to Git.
+  \Drupal::service('athari_donate.donation_manager')->regenerateCallbackSecret();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function athari_donate_uninstall(): void {
+  \Drupal::state()->delete('athari_donate.callback_secret');
+}

@@ -1,0 +1,12 @@
+athari_donate.config_section:
+  title: 'Athari'
+  description: 'Settings for the Athari portal.'
+  parent: system.admin_config
+  route_name: athari_donate.config_section
+  weight: -5
+
+athari_donate.settings:
+  title: 'Donations (M-Pesa)'
+  description: 'Daraja environment, shortcode and callback URL.'
+  parent: athari_donate.config_section
+  route_name: athari_donate.settings

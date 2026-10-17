@@ -1,0 +1,34 @@
+athari_donate.settings:
+  type: config_object
+  label: 'Athari Donate settings'
+  mapping:
+    environment:
+      type: string
+      label: 'Daraja environment (sandbox or production)'
+    shortcode:
+      type: string
+      label: 'Business short code (paybill or till)'
+    consumer_key:
+      type: string
+      label: 'Consumer key (normally supplied by a settings.local.php override)'
+    consumer_secret:
+      type: string
+      label: 'Consumer secret (normally supplied by a settings.local.php override)'
+    passkey:
+      type: string
+      label: 'Lipa na M-Pesa passkey (normally supplied by a settings.local.php override)'
+    api_base_url:
+      type: string
+      label: 'API base URL override, for testing against a mock'
+    callback_base_url:
+      type: string
+      label: 'Public base URL used to build the callback URL'
+    transaction_type:
+      type: string
+      label: 'Daraja transaction type'
+    min_amount:
+      type: integer
+      label: 'Minimum donation (KES)'
+    max_amount:
+      type: integer
+      label: 'Maximum donation (KES)'

@@ -1,0 +1,11 @@
+name: 'Athari Donations'
+type: module
+description: 'Mobile-money donations for Athari projects: M-Pesa (Safaricom Daraja) STK Push, a Donation entity, a callback endpoint and donation reports.'
+package: Athari
+core_version_requirement: ^11
+configure: athari_donate.settings
+dependencies:
+  - drupal:node
+  - drupal:options
+  - drupal:user
+  - drupal:views

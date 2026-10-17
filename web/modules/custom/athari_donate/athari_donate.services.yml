@@ -1,0 +1,24 @@
+services:
+  logger.channel.athari_donate:
+    parent: logger.channel_base
+    arguments: ['athari_donate']
+
+  athari_donate.daraja_client:
+    class: Drupal\athari_donate\Service\DarajaClient
+    arguments:
+      - '@http_client'
+      - '@config.factory'
+      - '@cache.default'
+      - '@datetime.time'
+      - '@logger.channel.athari_donate'
+
+  athari_donate.donation_manager:
+    class: Drupal\athari_donate\Service\DonationManager
+    arguments:
+      - '@entity_type.manager'
+      - '@athari_donate.daraja_client'
+      - '@config.factory'
+      - '@state'
+      - '@url_generator'
+      - '@datetime.time'
+      - '@logger.channel.athari_donate'
