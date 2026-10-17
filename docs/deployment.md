@@ -21,7 +21,7 @@ The files are in [`deploy/`](../deploy):
 | `bootstrap.sh` | Run once as root on a fresh Ubuntu 24.04 server. Installs Docker, firewall, automatic security updates, fail2ban, swap, then runs `install.sh` |
 | `install.sh` | Asks a few questions, writes secrets, builds the image, installs Drupal from `config/sync`, creates users, loads the Kenya demo data, schedules cron and backups |
 | `Dockerfile`, `docker-compose.yml`, `Caddyfile`, `php.ini` | The production image and its settings (built with `composer install --no-dev`, so Devel and test tools are not present) |
-| `create-users.php`, `create-sectors.php` | Create the staff accounts and the five Sector terms |
+| `create-users.php` | Creates the staff accounts (and `scripts/kenya-00-sectors.php` the five Sector terms) |
 | `backup.sh`, `cron.sh`, `update.sh` | Nightly backup, Drupal cron, and the update routine |
 
 ## What you need

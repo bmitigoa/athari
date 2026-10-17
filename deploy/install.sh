@@ -182,7 +182,7 @@ say "Creating accounts and the administrator password"
 drush php:script deploy/create-users.php
 
 say "Loading the Kenya demo data"
-drush php:script deploy/create-sectors.php
+drush php:script scripts/kenya-00-sectors.php
 drush php:script scripts/kenya-01-regions.php
 drush php:script scripts/kenya-03-seed.php
 drush php:script scripts/day3-06-menu-about.php

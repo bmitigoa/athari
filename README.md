@@ -23,9 +23,10 @@ cd athari
 ddev start
 ddev composer install
 ddev drush site:install --existing-config -y --account-name=admin --account-pass=admin
+ddev drush php:script scripts/kenya-00-sectors.php  # the five sectors
 ddev drush php:script scripts/kenya-01-regions.php   # 8 provinces and 47 counties
-ddev drush php:script scripts/kenya-03-seed.php      # partners, projects, sites, reports, donations
 ddev drush php:script scripts/day2-03-users.php      # demo staff accounts
+ddev drush php:script scripts/kenya-03-seed.php      # partners, projects, sites, reports, donations
 ddev drush php:script scripts/day3-06-menu-about.php # main menu and About page
 ddev drush cr
 ddev launch

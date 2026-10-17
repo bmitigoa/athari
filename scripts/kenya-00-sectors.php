@@ -5,7 +5,7 @@
  * Creates the five Sector terms. Taxonomy terms are content, not configuration,
  * so a fresh install from config/sync starts without them. Safe to run twice.
  *
- * Run: drush php:script deploy/create-sectors.php
+ * Run: drush php:script scripts/kenya-00-sectors.php
  */
 
 use Drupal\taxonomy\Entity\Term;
