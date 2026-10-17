@@ -529,3 +529,59 @@ table.views-table thead th a {
     padding: 2rem 1rem;
   }
 }
+
+/* 14. Donation form and status page (athari_donate) */
+.athari-donation-status {
+  max-width: 36rem;
+  margin: 1rem 0 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--athari-line);
+  border-left: 6px solid var(--athari-earth);
+  border-radius: var(--athari-radius);
+  background: #fff;
+  box-shadow: var(--athari-shadow);
+}
+
+.athari-donation-status--success {
+  border-left-color: var(--athari-green);
+}
+
+.athari-donation-status--failed,
+.athari-donation-status--cancelled {
+  border-left-color: #a33a2a;
+}
+
+.athari-donation-status__message {
+  margin: 0 0 0.5rem;
+  color: var(--athari-green-dark);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.athari-donation-status--pending .athari-donation-status__message::after {
+  content: "";
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-left: 0.6rem;
+  border: 3px solid var(--athari-green-soft);
+  border-top-color: var(--athari-green);
+  border-radius: 50%;
+  animation: athari-spin 0.9s linear infinite;
+}
+
+@keyframes athari-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .athari-donation-status--pending .athari-donation-status__message::after {
+    animation: none;
+  }
+}
+
+#athari-donate-donation-form {
+  max-width: 34rem;
+}
