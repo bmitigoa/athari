@@ -1,0 +1,19 @@
+# Container parameters for Athari (read by settings.php).
+parameters:
+  # Twig debug output would leak template paths; keep it off everywhere.
+  twig.config:
+    debug: false
+    auto_reload: null
+    cache: true
+
+  # CORS: the public API may be read from any website, read-only (GET).
+  # Credentials are never allowed, so a visitor's session cannot be used.
+  cors.config:
+    enabled: true
+    allowedHeaders: ['content-type', 'accept']
+    allowedMethods: ['GET', 'OPTIONS']
+    allowedOrigins: ['*']
+    allowedOriginsPatterns: []
+    exposedHeaders: false
+    maxAge: 600
+    supportsCredentials: false
