@@ -1,0 +1,22 @@
+# Keep the build context small and free of local or secret files.
+.git
+.ddev
+.claude
+CLAUDE.md
+.idea
+.vscode
+vendor
+web/core
+web/modules/contrib
+web/themes/contrib
+web/profiles/contrib
+web/libraries
+web/sites/*/files
+web/sites/*/settings.local.php
+web/sites/*/settings.ddev.php
+private
+docs
+tests
+deploy/.env
+node_modules
+*.log

@@ -63,3 +63,9 @@ core/.phpstan-baseline.php text eol=lf whitespace=blank-at-eol,-blank-at-eof,-sp
 *.ttf     -text diff
 *.woff    -text diff
 *.woff2   -text diff
+
+# Shell scripts and the deployment files must keep Unix line endings.
+deploy/*.sh text eol=lf
+deploy/Dockerfile text eol=lf
+deploy/Caddyfile text eol=lf
+
