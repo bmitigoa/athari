@@ -1,0 +1,4 @@
+services:
+  Drupal\athari_api\Hook\ApiHooks:
+    class: Drupal\athari_api\Hook\ApiHooks
+    autowire: true

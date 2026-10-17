@@ -1,0 +1,10 @@
+name: 'Athari API'
+type: module
+description: 'Public, read-only API for Athari: published-only JSON:API content and an impact summary endpoint.'
+package: Athari
+core_version_requirement: ^11
+dependencies:
+  - drupal:jsonapi
+  - drupal:node
+  - drupal:taxonomy
+  - athari_donate:athari_donate

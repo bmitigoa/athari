@@ -1,0 +1,7 @@
+athari_api.impact:
+  path: '/api/impact'
+  defaults:
+    _controller: '\Drupal\athari_api\Controller\ImpactController::summary'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
