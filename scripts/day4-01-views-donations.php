@@ -18,6 +18,16 @@ require_once __DIR__ . '/lib-views.php';
 use Drupal\block\Entity\Block;
 use Drupal\views\Entity\View;
 
+// impact_totals embeds donation_totals. Drupal deletes dependent config when a
+// view is deleted, so let go of the embed first or impact_totals (and its
+// block) would be deleted along with donation_totals on a re-run.
+if ($impact = View::load('impact_totals')) {
+  $display = &$impact->getDisplay('default');
+  unset($display['display_options']['header']['donations']);
+  unset($display);
+  $impact->save();
+}
+
 foreach (['donations_admin', 'donation_totals', 'project_donate_button'] as $id) {
   if ($view = View::load($id)) {
     $view->delete();
@@ -162,7 +172,8 @@ View::create([
           'status' => [
             'id' => 'status', 'table' => 'athari_donation', 'field' => 'status', 'relationship' => 'none', 'group_type' => 'group', 'admin_label' => '',
             'entity_type' => 'athari_donation', 'entity_field' => 'status', 'plugin_id' => 'string', 'operator' => '=', 'value' => '', 'group' => 1,
-            'exposed' => FALSE, 'expose' => $no_expose, 'is_grouped' => TRUE,
+            // A grouped filter must also be exposed, or it filters on an empty value.
+            'exposed' => TRUE, 'expose' => $exposed('status_unused', 'Status'), 'is_grouped' => TRUE,
             'group_info' => ['label' => 'Status', 'description' => '', 'identifier' => 'status', 'optional' => TRUE, 'widget' => 'select', 'multiple' => FALSE, 'remember' => FALSE, 'default_group' => 'All', 'default_group_multiple' => [], 'group_items' => $status_items],
           ],
           'title' => [

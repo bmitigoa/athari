@@ -1,4 +1,4 @@
-uuid: d8bf46fd-7fa3-47ba-a589-337fe50a328d
+uuid: fa9ff8b1-4aaa-42ea-8beb-a8681d8e6834
 langcode: en
 status: true
 dependencies:
@@ -435,21 +435,22 @@ display:
           operator: '='
           value: ''
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: status_unused_op
+            label: Status
             description: ''
             use_operator: false
-            operator: ''
+            operator: status_unused_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: ''
+            identifier: status_unused
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: true
           group_info:
             label: Status

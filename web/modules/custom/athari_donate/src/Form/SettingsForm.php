@@ -72,8 +72,9 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-    // Configuration with overrides applied, so read-only state is accurate.
-    $config = $this->config('athari_donate.settings');
+    // The immutable config object has settings.local.php overrides applied.
+    // ($this->config() would return the editable one, which has none.)
+    $config = $this->configFactory->get('athari_donate.settings');
     $note = $this->t('Set in settings.local.php, so it is read-only here.');
 
     $form['environment'] = [
@@ -181,7 +182,7 @@ class SettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     // Edit the raw config object, so overridden values are not written back.
     $editable = $this->configFactory->getEditable('athari_donate.settings');
-    $overridden = $this->config('athari_donate.settings');
+    $overridden = $this->configFactory->get('athari_donate.settings');
     foreach (['environment', 'shortcode', 'callback_base_url', 'min_amount', 'max_amount'] as $name) {
       if (!$overridden->hasOverrides($name)) {
         $value = $form_state->getValue($name);
