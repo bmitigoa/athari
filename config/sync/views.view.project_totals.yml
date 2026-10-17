@@ -1,4 +1,4 @@
-uuid: eae3404f-005d-49af-aa15-049afbf0a7f1
+uuid: f3c9de82-9edc-4b5b-849e-9b6a56a4f110
 langcode: en
 status: true
 dependencies:
@@ -259,7 +259,7 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      css_class: athari-stats
+      css_class: 'athari-stats athari-stats--3'
       use_ajax: false
       group_by: true
       display_extenders: {  }

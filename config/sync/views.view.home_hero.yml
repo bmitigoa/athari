@@ -1,4 +1,4 @@
-uuid: c82a95da-bf6e-4755-9c39-8a621f22d0ec
+uuid: 23ab5289-ba24-4387-93c7-ae9cc9b3d0ff
 langcode: en
 status: true
 dependencies:
@@ -141,7 +141,7 @@ display:
                   <div class="athari-hero__actions">
                     <a class="athari-btn" href="/projects">Explore projects</a>
                     <a class="athari-btn athari-btn--ghost" href="/impact">See our impact</a>
-                    <span class="athari-btn athari-btn--earth athari-btn--disabled" role="button" aria-disabled="true" title="Mobile-money donations are coming soon">Donate (coming soon)</span>
+                    <a class="athari-btn athari-btn--earth" href="/donate">Donate with M-Pesa</a>
                   </div>
                 </div>
               </div>

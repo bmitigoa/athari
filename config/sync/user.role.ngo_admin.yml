@@ -11,6 +11,7 @@ dependencies:
     - taxonomy.vocabulary.sector
     - workflows.workflow.report_review
   module:
+    - athari_donate
     - content_moderation
     - field_ui
     - node
@@ -30,6 +31,7 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
+  - 'administer athari donate'
   - 'administer content types'
   - 'administer node display'
   - 'administer node fields'
@@ -69,6 +71,7 @@ permissions:
   - 'edit own report content'
   - 'edit terms in region'
   - 'edit terms in sector'
+  - 'make donations'
   - 'revert all revisions'
   - 'use report_review transition archive'
   - 'use report_review transition create_draft'
@@ -79,6 +82,7 @@ permissions:
   - 'use report_review transition submit_for_review'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view athari donations'
   - 'view latest version'
   - 'view own unpublished content'
   - 'view the administration theme'

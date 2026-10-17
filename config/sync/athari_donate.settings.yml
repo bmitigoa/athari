@@ -1,0 +1,12 @@
+_core:
+  default_config_hash: sIcmUFxj10GGDWjS2DaQlJV3Uhg8rF2ZmgcYlJNWi-0
+environment: sandbox
+shortcode: ''
+consumer_key: ''
+consumer_secret: ''
+passkey: ''
+api_base_url: ''
+callback_base_url: ''
+transaction_type: CustomerPayBillOnline
+min_amount: 10
+max_amount: 150000

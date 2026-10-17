@@ -1,0 +1,32 @@
+uuid: 54fac5dd-635e-4307-87b9-7e4396c68a87
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.project_donate_button
+  module:
+    - node
+    - views
+  theme:
+    - athari_theme
+id: athari_theme_project_donate_button
+theme: athari_theme
+region: content
+weight: 14
+provider: null
+plugin: 'views_block:project_donate_button-block_1'
+settings:
+  id: 'views_block:project_donate_button-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      project: project

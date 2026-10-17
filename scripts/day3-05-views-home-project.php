@@ -70,7 +70,7 @@ View::create([
         'arguments' => athari_varg_node('field_project_target_id', 'node__field_project', 'field_project_target_id', 'numeric'),
         'style' => $plain_style,
         'row' => ['type' => 'fields', 'options' => ['default_field_elements' => FALSE, 'inline' => [], 'separator' => '', 'hide_empty' => FALSE]],
-        'css_class' => 'athari-stats',
+        'css_class' => 'athari-stats athari-stats--3',
       ]),
     ],
     'block_1' => $block_display('Results to date', 'Project page: totals'),

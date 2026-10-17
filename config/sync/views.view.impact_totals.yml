@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.report
+    - views.view.donation_totals
     - views.view.impact_active_projects
     - views.view.impact_chart_region
     - views.view.impact_chart_sector
@@ -195,6 +196,17 @@ display:
           plugin_id: view
           empty: true
           view_to_insert: 'impact_active_projects:block_1'
+          inherit_arguments: false
+        donations:
+          id: donations
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: view
+          empty: true
+          view_to_insert: 'donation_totals:block_home'
           inherit_arguments: false
       display_extenders: {  }
     cache_metadata:

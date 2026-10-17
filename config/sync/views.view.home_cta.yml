@@ -1,4 +1,4 @@
-uuid: 0f506c98-0986-4a07-b46f-394c970fdfda
+uuid: 84269490-6e87-4168-9c8f-95a6a47a70a9
 langcode: en
 status: true
 dependencies:
@@ -135,8 +135,8 @@ display:
             value: |-
               <div class="athari-cta">
                 <h2>Help us reach more communities</h2>
-                <p>Soon you will be able to donate to a project of your choice by M-Pesa. Every contribution is tracked from the first payment to the field report that shows what it achieved.</p>
-                <span class="athari-btn athari-btn--earth athari-btn--disabled" role="button" aria-disabled="true" title="Mobile-money donations are coming soon">Donate (coming soon)</span>
+                <p>Donate to a project of your choice by M-Pesa. Every contribution is tracked from the first payment to the field report that shows what it achieved.</p>
+                <a class="athari-btn athari-btn--earth" href="/donate">Donate with M-Pesa</a>
               </div>
             format: full_html
           tokenize: false
