@@ -7,8 +7,9 @@ namespace Drupal\athari_donate;
 /**
  * A mobile-money provider that can ask a donor to approve a payment.
  *
- * Daraja (M-Pesa) implements this today. An MTN MoMo or Airtel Money provider
- * could implement the same interface and be selected in DonationManager.
+ * Daraja (M-Pesa, Safaricom Kenya) is the only provider today. Airtel Money
+ * Kenya or a card gateway could implement the same interface later and be
+ * selected in DonationManager.
  */
 interface PaymentProviderInterface {
 

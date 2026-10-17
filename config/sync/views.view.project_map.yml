@@ -257,10 +257,10 @@ display:
           map_position:
             force: true
             center:
-              lat: 1.3733
-              lon: 32.2903
+              lat: 0.0236
+              lon: 37.9062
             zoomControlPosition: topleft
-            zoom: 7
+            zoom: 6
             minZoom: 5
             maxZoom: 18
             zoomFiner: 0
@@ -329,10 +329,10 @@ display:
           map_position:
             force: true
             center:
-              lat: 1.3733
-              lon: 32.2903
+              lat: 0.0236
+              lon: 37.9062
             zoomControlPosition: topleft
-            zoom: 7
+            zoom: 6
             minZoom: 5
             maxZoom: 18
             zoomFiner: 0

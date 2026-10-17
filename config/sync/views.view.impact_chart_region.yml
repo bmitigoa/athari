@@ -81,7 +81,7 @@ display:
           group_type: sum
           admin_label: ''
           plugin_id: field
-          label: 'Funds spent (USD)'
+          label: 'Funds spent (KES)'
           exclude: false
           alter:
             alter_text: false
@@ -190,7 +190,7 @@ display:
                   weight: 1
               allow_advanced_rendering: false
             display:
-              title: 'Funds spent by region (USD)'
+              title: 'Funds spent by region (KES)'
               title_position: out
               subtitle: ''
               data_labels: false
@@ -227,7 +227,7 @@ display:
                 red_to: '50'
               color_changer: false
             xaxis:
-              title: USD
+              title: KES
               labels_rotation: '0'
             yaxis:
               title: Region

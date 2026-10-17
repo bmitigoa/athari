@@ -10,8 +10,8 @@ id: node.project.field_region
 field_name: field_region
 entity_type: node
 bundle: project
-label: Region
-description: 'Region or district where the project operates.'
+label: County
+description: 'County where the project operates.'
 required: true
 translatable: true
 default_value: {  }

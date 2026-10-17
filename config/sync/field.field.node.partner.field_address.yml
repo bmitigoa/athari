@@ -19,7 +19,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   available_countries:
-    - UG
+    - KE
   langcode_override: null
   field_overrides: {  }
   fields: {  }

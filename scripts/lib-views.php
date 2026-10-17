@@ -186,8 +186,8 @@ function athari_vchart(string $type, string $label_field, string $data_field, st
 /**
  * Leaflet style options shared by the map views.
  */
-function athari_vleaflet(int $height, bool $fixed_uganda): array {
-  $position = ['force' => $fixed_uganda, 'center' => ['lat' => 1.3733, 'lon' => 32.2903], 'zoomControlPosition' => 'topleft', 'zoom' => 7, 'minZoom' => 5, 'maxZoom' => 18, 'zoomFiner' => 0];
+function athari_vleaflet(int $height, bool $fixed_view): array {
+  $position = ['force' => $fixed_view, 'center' => ['lat' => 0.0236, 'lon' => 37.9062], 'zoomControlPosition' => 'topleft', 'zoom' => 6, 'minZoom' => 5, 'maxZoom' => 18, 'zoomFiner' => 0];
   return [
     'type' => 'leaflet_map',
     'options' => [
@@ -226,4 +226,17 @@ function athari_vmap_fields(): array {
       'element_wrapper_type' => '', 'element_wrapper_class' => '', 'element_default_classes' => TRUE, 'empty' => '', 'hide_empty' => FALSE, 'empty_zero' => FALSE, 'hide_alter_empty' => FALSE,
     ],
   ];
+}
+
+/**
+ * Rewrite for a KES total on a stat card: 61500000 shows as "KES 61.5M".
+ *
+ * @param string $field
+ *   The Views field id whose plain number is formatted.
+ */
+function athari_kes_rewrite(string $field): array {
+  $twig = "{% set v = " . $field . "|striptags|replace({',': ''})|trim + 0 %}"
+    . "{% if v >= 1000000 %}KES {{ (v / 1000000)|number_format(1, '.', ',') }}M"
+    . "{% else %}KES {{ v|number_format(0, '.', ',') }}{% endif %}";
+  return athari_rewrite($twig);
 }

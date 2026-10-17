@@ -127,10 +127,10 @@ $chart_view(
   ],
   [
     'name' => $term_name('region_rel'),
-    'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', $chart_dec + ['label' => 'Funds spent (USD)', 'group_type' => 'sum']),
+    'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', $chart_dec + ['label' => 'Funds spent (KES)', 'group_type' => 'sum']),
   ],
   $name_sort('region_rel'),
-  athari_vchart('bar', 'name', 'field_funds_spent', '#c0682f', 'Funds spent by region (USD)', ['y' => 'Region', 'x' => 'USD']),
+  athari_vchart('bar', 'name', 'field_funds_spent', '#c0682f', 'Funds spent by region (KES)', ['y' => 'Region', 'x' => 'KES']),
   'Funds spent by region'
 );
 
@@ -157,7 +157,7 @@ $chart_view(
 // ---------------------------------------------------------------------------
 $totals_fields = [
   'field_beneficiaries' => athari_vf('field_beneficiaries', 'node__field_beneficiaries', 'field_beneficiaries', athari_stat('Beneficiaries reached', 'beneficiaries') + $int_format + ['group_type' => 'sum', 'click_sort_column' => 'value', 'alter' => athari_rewrite('{{ field_beneficiaries|number_format(0, ".", ",") }}')]),
-  'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', athari_stat('Funds spent', 'funds') + $usd_format + ['group_type' => 'sum', 'click_sort_column' => 'value', 'alter' => athari_rewrite('USD {{ field_funds_spent|number_format(0, ".", ",") }}')]),
+  'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', athari_stat('Funds spent', 'funds') + $usd_format + ['group_type' => 'sum', 'click_sort_column' => 'value', 'alter' => athari_kes_rewrite('field_funds_spent')]),
 ];
 
 View::create([

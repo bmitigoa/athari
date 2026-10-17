@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: Region
 vid: region
-description: 'Region classification for Athari projects.'
+description: "Kenya's 47 counties grouped under the 8 former provinces."
 weight: 0
 new_revision: false

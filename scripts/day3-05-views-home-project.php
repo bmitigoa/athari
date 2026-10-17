@@ -64,7 +64,7 @@ View::create([
         'fields' => [
           'nid' => athari_vf_base('nid', 'node_field_data', 'nid', 'node', athari_stat('Published reports', 'projects') + ['type' => 'number_integer', 'settings' => ['thousand_separator' => '', 'prefix_suffix' => FALSE], 'group_type' => 'count']),
           'field_beneficiaries' => athari_vf('field_beneficiaries', 'node__field_beneficiaries', 'field_beneficiaries', athari_stat('Beneficiaries reached', 'beneficiaries') + ['type' => 'number_integer', 'settings' => ['thousand_separator' => '', 'prefix_suffix' => FALSE], 'group_type' => 'sum', 'alter' => athari_rewrite('{{ field_beneficiaries|number_format(0, ".", ",") }}')]),
-          'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', athari_stat('Funds spent', 'funds') + ['type' => 'number_integer', 'settings' => ['thousand_separator' => '', 'prefix_suffix' => FALSE], 'group_type' => 'sum', 'alter' => athari_rewrite('USD {{ field_funds_spent|number_format(0, ".", ",") }}')]),
+          'field_funds_spent' => athari_vf('field_funds_spent', 'node__field_funds_spent', 'field_funds_spent', athari_stat('Funds spent', 'funds') + ['type' => 'number_integer', 'settings' => ['thousand_separator' => '', 'prefix_suffix' => FALSE], 'group_type' => 'sum', 'alter' => athari_kes_rewrite('field_funds_spent')]),
         ],
         'filters' => athari_vfilters_node('report'),
         'arguments' => athari_varg_node('field_project_target_id', 'node__field_project', 'field_project_target_id', 'numeric'),
@@ -183,7 +183,7 @@ $text_view = function (string $id, string $label, string $html) use ($no_rows, $
 $text_view('home_hero', 'Homepage hero', <<<'HTML'
 <div class="athari-hero">
   <div class="athari-hero__inner">
-    <p class="athari-hero__eyebrow">NGO Project &amp; Impact Portal · Uganda</p>
+    <p class="athari-hero__eyebrow">NGO Project &amp; Impact Portal · Kenya</p>
     <h1 class="athari-hero__title">Tracking change, one community at a time</h1>
     <p class="athari-hero__lead">Athari shows where our projects work, who they reach and what every shilling achieves, from the first field report to the final result.</p>
     <div class="athari-hero__actions">

@@ -10,7 +10,7 @@ id: node.location.field_district
 field_name: field_district
 entity_type: node
 bundle: location
-label: District
+label: County
 description: ''
 required: true
 translatable: true

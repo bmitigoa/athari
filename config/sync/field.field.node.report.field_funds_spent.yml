@@ -9,7 +9,7 @@ id: node.report.field_funds_spent
 field_name: field_funds_spent
 entity_type: node
 bundle: report
-label: 'Funds spent (USD)'
+label: 'Funds spent (KES)'
 description: ''
 required: true
 translatable: true
@@ -18,6 +18,6 @@ default_value_callback: ''
 settings:
   min: 0.0
   max: null
-  prefix: 'USD '
+  prefix: 'KES '
   suffix: ''
 field_type: decimal

@@ -178,7 +178,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Region
+          label: County
           exclude: false
           alter:
             alter_text: false
@@ -393,7 +393,7 @@ display:
           exposed: true
           expose:
             operator_id: region_op
-            label: 'Region / district'
+            label: 'Region / county'
             description: ''
             use_operator: false
             operator: region_op
@@ -635,7 +635,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Region
+          label: County
           exclude: false
           alter:
             alter_text: false
