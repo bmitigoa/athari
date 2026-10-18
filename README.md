@@ -2,6 +2,8 @@
 
 **Athari** (Swahili for "impact") is an open-source Drupal 11 portal that helps a Kenyan NGO manage its projects, collect field reports through a review workflow, show its impact on maps and charts, and accept donations by M-Pesa.
 
+▶ **Demo video:** [Watch the walkthrough on YouTube](https://youtu.be/-JyAPeTiXSo)
+
 It was built as a five-day portfolio project, aimed at NGO IT and information-systems roles in Kenya. All amounts are in Kenyan shillings (KES) and the organisations, projects and people in the demo data are fictional.
 
 | | |
@@ -53,7 +55,9 @@ Without keys, the donation form still loads and the seeded donations show how to
 
 ## Demo
 
-**Demo video:** DEMO_VIDEO_LINK_PLACEHOLDER
+[![Athari demo video](https://img.youtube.com/vi/-JyAPeTiXSo/maxresdefault.jpg)](https://youtu.be/-JyAPeTiXSo)
+
+▶ Watch the 3-minute walkthrough on YouTube
 
 | Home | Projects |
 |---|---|
